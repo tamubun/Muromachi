@@ -3,31 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>室町・南北朝ダイナミック相関図</title>
-    <style>
-        body { font-family: sans-serif; margin: 0; display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
-        header { padding: 15px 40px; background: #fafafa; border-bottom: 1px solid #eee; flex-shrink: 0; }
-        #title-box { font-weight: bold; font-size: 18px; color: #aa0000; }
-        #explanation-box { font-size: 14px; color: #444; margin-top: 5px; }
-        main { flex-grow: 1; position: relative; overflow: hidden; background: #fff; cursor: grab; }
-        main:active { cursor: grabbing; }
-        #svg-container { width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; transform-origin: center; }
-        footer { height: 120px; background: #fff; border-top: 2px solid #eee; display: flex; align-items: center; padding: 0 10px; flex-shrink: 0; }
-        .nav-group { display: flex; margin-right: 10px; }
-        .nav-btn { width: 45px; height: 45px; cursor: pointer; border: 1px solid #ccc; background: #eee; font-weight: bold; }
-        .nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
-        .timeline-scroll { flex-grow: 1; overflow-x: auto; height: 100%; display: flex; align-items: center; }
-        .timeline-wrapper { display: flex; position: relative; padding: 0 40px; align-items: center; }
-        .dot-wrapper { display: flex; flex-direction: column; align-items: center; width: 100px; cursor: pointer; position: relative; }
-        .timeline-dot { width: 12px; height: 12px; border-radius: 50%; background: #ccc; margin-bottom: 8px; z-index: 2; transition: background 0.2s; }
-        .timeline-dot.active { background: #aa0000; transform: scale(1.4); }
-        .line { position: absolute; top: 6px; width: 100%; height: 2px; background: #ccc; z-index: 1; }
-        .label-year { font-size: 11px; }
-        .label-era { font-size: 10px; color: #777; font-weight: bold; }
-	.edge:hover path {
-	    stroke-width: 10px;
-	    cursor: pointer;
-	}
-    </style>
+    <link href='./muromachi.css' rel='stylesheet' type='text/css'>
 </head>
 <body>
     <header>
@@ -44,81 +20,6 @@
             <div class="timeline-wrapper" id="timeline-inner"><div class="line"></div></div>
         </div>
     </footer>
-    <script>
-        let timelineData = [];
-        let currentIndex = 0;
-        let scale = 1, pointX = 0, pointY = 0, isDragging = false, startX = 0, startY = 0;
-        const container = document.getElementById('svg-container');
-        const zoomArea = document.getElementById('zoom-area');
-
-        async function init() {
-            const res = await fetch('timeline.json');
-            timelineData = await res.json();
-            const inner = document.getElementById('timeline-inner');
-            timelineData.forEach((ev, i) => {
-                const div = document.createElement('div');
-                div.className = 'dot-wrapper';
-                div.innerHTML = `<div class="timeline-dot" id="dot-${i}"></div><div class="label-year">${ev.year}</div><div class="label-era">${ev.era}</div>`;
-                div.onclick = () => selectEvent(i);
-                inner.appendChild(div);
-            });
-            selectEvent(0);
-        }
-
-        async function selectEvent(i) {
-            if (i < 0 || i >= timelineData.length) return;
-            currentIndex = i;
-            const ev = timelineData[i];
-
-            // UI更新：タイトルをヘッダーに表示
-            document.querySelectorAll('.timeline-dot').forEach((d, idx) => d.classList.toggle('active', idx === i));
-            document.getElementById('title-box').textContent = ev.title; 
-            document.getElementById('explanation-box').textContent = ev.exp;
-            document.getElementById('prev-btn').disabled = (i === 0);
-            document.getElementById('next-btn').disabled = (i === timelineData.length - 1);
-
-            // タイムラインスクロール
-            const scrollArea = document.getElementById('scroll-area');
-            const target = document.getElementById(`dot-${i}`).parentElement;
-            scrollArea.scrollTo({ left: target.offsetLeft - scrollArea.offsetWidth / 2 + 50, behavior: 'smooth' });
-
-            // SVG読み込み
-            try {
-                const svgRes = await fetch(ev.file);
-                container.innerHTML = await svgRes.text();
-                scale = 1; pointX = 0; pointY = 0;
-                updateTransform();
-            } catch (e) {
-                container.innerHTML = '図の読み込みに失敗しました';
-            }
-        }
-
-        function updateTransform() {
-            container.style.transform = `translate(${pointX}px, ${pointY}px) scale(${scale})`;
-        }
-
-        zoomArea.addEventListener('mousedown', (e) => {
-            isDragging = true;
-            startX = e.clientX - pointX;
-            startY = e.clientY - pointY;
-        });
-        window.addEventListener('mousemove', (e) => {
-            if (!isDragging) return;
-            pointX = e.clientX - startX;
-            pointY = e.clientY - startY;
-            updateTransform();
-        });
-        window.addEventListener('mouseup', () => isDragging = false);
-        zoomArea.addEventListener('wheel', (e) => {
-            e.preventDefault();
-            scale = Math.min(Math.max(scale + (e.deltaY > 0 ? -0.1 : 0.1), 0.2), 3);
-            updateTransform();
-        }, { passive: false });
-
-        document.getElementById('prev-btn').onclick = () => selectEvent(currentIndex - 1);
-        document.getElementById('next-btn').onclick = () => selectEvent(currentIndex + 1);
-
-        init();
-    </script>
+    <script src="./muromachi.js"></script>
 </body>
 </html>
