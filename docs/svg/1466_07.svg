@@ -1,0 +1,460 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1149pt" height="908pt" viewBox="0.00 0.00 1149.00 908.00">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 904)">
+<title>Muromachi_1466_07_Fixed_Link</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-904 1145,-904 1145,4 -4,4"/>
+<!-- TitleNode -->
+<g id="node1" class="node">
+<title>TitleNode</title>
+<g id="a_node1"><a xlink:title="【文正の政変直前】文正元年7月時点：側近政治の絶頂と山名・畠山義就の電撃同盟">
+<text xml:space="preserve" text-anchor="middle" x="1037" y="-876" font-family="MS Gothic,Hiragino Kaku Gothic Pro W3,sans-serif" font-size="20.00" fill="#222222">1466年7月</text>
+</a>
+</g>
+</g>
+<!-- Ashikaga_Yoshimasa -->
+<g id="node2" class="node">
+<title>Ashikaga_Yoshimasa</title>
+<g id="a_node2"><a xlink:href="https://ja.wikipedia.org/wiki/足利義政" xlink:title="室町幕府第8代将軍" target="_blank">
+<text xml:space="preserve" text-anchor="middle" x="533" y="-658.8" font-family="MS Gothic,Hiragino Kaku Gothic Pro W3,sans-serif" font-size="24.00" fill="#111111">足利義政</text>
+</a>
+</g>
+</g>
+<!-- Hino_Tomiko -->
+<g id="node3" class="node">
+<title>Hino_Tomiko</title>
+<g id="a_node3"><a xlink:href="https://ja.wikipedia.org/wiki/日野富子" xlink:title="将軍御台所" target="_blank">
+<text xml:space="preserve" text-anchor="middle" x="389" y="-658.8" font-family="MS Gothic,Hiragino Kaku Gothic Pro W3,sans-serif" font-size="24.00" fill="#111111">日野富子</text>
+</a>
+</g>
+</g>
+<!-- Ashikaga_Yoshimasa&#45;&gt;Hino_Tomiko -->
+<g id="edge1" class="edge">
+<title>Ashikaga_Yoshimasa-&gt;Hino_Tomiko</title>
+<g id="a_edge1"><a xlink:title="夫婦関係">
+<path fill="none" stroke="#444444" stroke-width="1.5" d="M489.01,-666C471.15,-666 450.56,-666 432.72,-666"/>
+</a>
+</g>
+</g>
+<!-- Ashikaga_Yoshimi -->
+<g id="node4" class="node">
+<title>Ashikaga_Yoshimi</title>
+<g id="a_node4"><a xlink:href="https://ja.wikipedia.org/wiki/足利義視" xlink:title="将軍弟。貞親ら側近グループから激しく警戒され始める" target="_blank">
+<text xml:space="preserve" text-anchor="middle" x="749" y="-659.4" font-family="MS Gothic,Hiragino Kaku Gothic Pro W3,sans-serif" font-size="22.00" fill="#111111">足利義視</text>
+</a>
+</g>
+</g>
+<!-- Hino_Tomiko&#45;&gt;Ashikaga_Yoshimi -->
+<g id="edge16" class="edge">
+<title>Hino_Tomiko-&gt;Ashikaga_Yoshimi</title>
+<g id="a_edge16"><a xlink:title="義視を警戒">
+<path fill="none" stroke="#aa0000" stroke-width="2" d="M432.99,-654.04C449.43,-650.14 468.34,-646.32 485.8,-644.4 559.19,-636.31 644.4,-646.95 697.52,-655.95"/>
+<polygon fill="#aa0000" stroke="#aa0000" stroke-width="2" points="697.01,-658.7 705.37,-657.32 697.97,-653.19 697.01,-658.7"/>
+</a>
+</g>
+</g>
+<!-- Ashikaga_Yoshihisa -->
+<g id="node5" class="node">
+<title>Ashikaga_Yoshihisa</title>
+<g id="a_node5"><a xlink:href="https://ja.wikipedia.org/wiki/足利義尚" xlink:title="義政と富子の実子（赤子）" target="_blank">
+<text xml:space="preserve" text-anchor="middle" x="245" y="-660.6" font-family="MS Gothic,Hiragino Kaku Gothic Pro W3,sans-serif" font-size="18.00" fill="#111111">足利義尚</text>
+</a>
+</g>
+</g>
+<!-- Hino_Tomiko&#45;&gt;Ashikaga_Yoshihisa -->
+<g id="edge15" class="edge">
+<title>Hino_Tomiko-&gt;Ashikaga_Yoshihisa</title>
+<g id="a_edge15"><a xlink:title="実子。次期将軍へ擁立">
+<path fill="none" stroke="#0033aa" stroke-width="1.5" d="M345.01,-666C326.47,-666 304.98,-666 286.69,-666"/>
+<polygon fill="#0033aa" stroke="#0033aa" stroke-width="1.5" points="286.86,-664.25 281.86,-666 286.86,-667.75 286.86,-664.25"/>
+</a>
+</g>
+</g>
+<!-- Ise_Sadanika -->
+<g id="node6" class="node">
+<title>Ise_Sadanika</title>
+<g id="a_node6"><a xlink:href="https://ja.wikipedia.org/wiki/伊勢貞親" xlink:title="政所執事。斯波義敏を復権させ、幕府の実権を掌握" target="_blank">
+<text xml:space="preserve" text-anchor="middle" x="461" y="-804" font-family="MS Gothic,Hiragino Kaku Gothic Pro W3,sans-serif" font-size="20.00" fill="#22aa22">伊勢貞親</text>
+</a>
+</g>
+</g>
+<!-- Ise_Sadanika&#45;&gt;Ashikaga_Yoshimasa -->
+<g id="edge4" class="edge">
+<title>Ise_Sadanika-&gt;Ashikaga_Yoshimasa</title>
+<g id="a_edge4"><a xlink:title="将軍を動かして側近主導の政治を敢行">
+<path fill="none" stroke="#00aa00" stroke-width="2" d="M469.97,-792.05C482.32,-767.37 504.64,-722.71 519.14,-693.72"/>
+<polygon fill="#00aa00" stroke="#00aa00" stroke-width="2" points="521.49,-695.29 522.56,-686.88 516.48,-692.78 521.49,-695.29"/>
+</a>
+</g>
+</g>
+<!-- Shiba_Yoshikado -->
+<g id="node18" class="node">
+<title>Shiba_Yoshikado</title>
+<g id="a_node18"><a xlink:href="https://ja.wikipedia.org/wiki/斯波義廉" xlink:title="【家督剥奪】貞親らにより当主の座を追われ、山名と共に激しく反発" target="_blank">
+<text xml:space="preserve" text-anchor="middle" x="245" y="-517.2" font-family="MS Gothic,Hiragino Kaku Gothic Pro W3,sans-serif" font-size="16.00" fill="#bb0000">斯波義廉</text>
+</a>
+</g>
+</g>
+<!-- Ise_Sadanika&#45;&gt;Shiba_Yoshikado -->
+<g id="edge3" class="edge">
+<title>Ise_Sadanika-&gt;Shiba_Yoshikado</title>
+<g id="a_edge3"><a xlink:title="義廉の管領職・家督を剥奪して排斥">
+<path fill="none" stroke="#aa0000" stroke-width="2" d="M440.14,-792.19C403.85,-760.18 328.76,-689.33 284.8,-615.2 272.44,-594.36 261.86,-568.96 254.72,-549.95"/>
+<polygon fill="#aa0000" stroke="#aa0000" stroke-width="2" points="257.44,-549.24 252.06,-542.69 252.18,-551.16 257.44,-549.24"/>
+</a>
+</g>
+</g>
+<!-- Shiba_Yoshitoshi -->
+<g id="node30" class="node">
+<title>Shiba_Yoshitoshi</title>
+<g id="a_node30"><a xlink:href="https://ja.wikipedia.org/wiki/斯波義敏" xlink:title="【電撃復権】貞親の工作により、強引に斯波家家督に返り咲く" target="_blank">
+<text xml:space="preserve" text-anchor="middle" x="821" y="-516.6" font-family="MS Gothic,Hiragino Kaku Gothic Pro W3,sans-serif" font-size="18.00" fill="#0055bb">斯波義敏</text>
+</a>
+</g>
+</g>
+<!-- Ise_Sadanika&#45;&gt;Shiba_Yoshitoshi -->
+<g id="edge2" class="edge">
+<title>Ise_Sadanika-&gt;Shiba_Yoshitoshi</title>
+<g id="a_edge2"><a xlink:title="義敏を強引に呼び戻し、斯波家の家督を奪還させる">
+<path fill="none" stroke="#0033aa" stroke-width="2.5" d="M483.25,-792.2C545.01,-742.79 718.73,-603.82 789.95,-546.84"/>
+<polygon fill="#0033aa" stroke="#0033aa" stroke-width="2.5" points="791.45,-549.23 795.95,-542.04 787.95,-544.85 791.45,-549.23"/>
+</a>
+</g>
+</g>
+<!-- Hino_Mitsumitsu -->
+<g id="node7" class="node">
+<title>Hino_Mitsumitsu</title>
+<g id="a_node7"><a xlink:href="https://ja.wikipedia.org/wiki/日野勝光" xlink:title="内大臣。貞親と共に側近政治を主導" target="_blank">
+<text xml:space="preserve" text-anchor="middle" x="317" y="-805.2" font-family="MS Gothic,Hiragino Kaku Gothic Pro W3,sans-serif" font-size="16.00" fill="#22aa22">日野勝光</text>
+</a>
+</g>
+</g>
+<!-- Hino_Mitsumitsu&#45;&gt;Hino_Tomiko -->
+<g id="edge17" class="edge">
+<title>Hino_Mitsumitsu-&gt;Hino_Tomiko</title>
+<g id="a_edge17"><a xlink:title="実兄">
+<path fill="none" stroke="#0033aa" d="M330.16,-783.68C343.12,-757.75 362.81,-718.38 375.79,-692.42"/>
+<polygon fill="#0033aa" stroke="#0033aa" points="327.72,-782.29 326.65,-790.7 332.73,-784.8 327.72,-782.29"/>
+<polygon fill="#0033aa" stroke="#0033aa" points="378.16,-693.93 379.24,-685.53 373.15,-691.43 378.16,-693.93"/>
+</a>
+</g>
+</g>
+<!-- Karasumaru_Suketo -->
+<g id="node8" class="node">
+<title>Karasumaru_Suketo</title>
+<g id="a_node8"><a xlink:href="https://ja.wikipedia.org/wiki/烏丸資任" xlink:title="将軍側近（三魔の一人。この時期は目立った動きなし）" target="_blank">
+<text xml:space="preserve" text-anchor="middle" x="533" y="-877.8" font-family="MS Gothic,Hiragino Kaku Gothic Pro W3,sans-serif" font-size="14.00" fill="#cccccc">烏丸資任</text>
+</a>
+</g>
+</g>
+<!-- Imamairino_Tsubone -->
+<g id="node9" class="node">
+<title>Imamairino_Tsubone</title>
+<g id="a_node9"><a xlink:href="https://ja.wikipedia.org/wiki/今参局" xlink:title="物故者" target="_blank">
+<text xml:space="preserve" text-anchor="middle" x="389" y="-877.8" font-family="MS Gothic,Hiragino Kaku Gothic Pro W3,sans-serif" font-size="14.00" fill="#cccccc">今参局</text>
+</a>
+</g>
+</g>
+<!-- Keikei_Shinzui -->
+<g id="node10" class="node">
+<title>Keikei_Shinzui</title>
+<g id="a_node10"><a xlink:href="https://ja.wikipedia.org/wiki/季瓊真蘂" xlink:title="政僧。この時期は貞親の陰に隠れる" target="_blank">
+<text xml:space="preserve" text-anchor="middle" x="605" y="-805.8" font-family="MS Gothic,Hiragino Kaku Gothic Pro W3,sans-serif" font-size="14.00" fill="#cccccc">季瓊真蘂</text>
+</a>
+</g>
+</g>
+<!-- Yamana_Sozen -->
+<g id="node11" class="node">
+<title>Yamana_Sozen</title>
+<g id="a_node11"><a xlink:href="https://ja.wikipedia.org/wiki/山名宗全" xlink:title="但馬守護。後背の斯波義廉を追放され大激怒。反撃の機を狙う" target="_blank">
+<text xml:space="preserve" text-anchor="middle" x="245" y="-298.2" font-family="MS Gothic,Hiragino Kaku Gothic Pro W3,sans-serif" font-size="26.00" fill="#aa0000">山名宗全</text>
+</a>
+</g>
+</g>
+<!-- Yamana_Sozen&#45;&gt;Ise_Sadanika -->
+<g id="edge7" class="edge">
+<title>Yamana_Sozen-&gt;Ise_Sadanika</title>
+<g id="a_edge7"><a xlink:title="斯波家を奪われ、怒りは頂点に。不倶戴天の敵となる">
+<path fill="none" stroke="#aa0000" stroke-width="3" d="M266.6,-335.38C307.04,-392.01 393.91,-521.52 436.2,-644.4 451.9,-690.02 457.67,-746.09 459.78,-779.89"/>
+<polygon fill="#aa0000" stroke="#aa0000" stroke-width="3" points="268.98,-333.91 262.04,-329.05 264.44,-337.18 268.98,-333.91"/>
+<polygon fill="#aa0000" stroke="#aa0000" stroke-width="3" points="456.97,-779.72 460.2,-787.56 462.56,-779.42 456.97,-779.72"/>
+</a>
+</g>
+</g>
+<!-- Hatakeyama_Yoshinari -->
+<g id="node16" class="node">
+<title>Hatakeyama_Yoshinari</title>
+<g id="a_node16"><a xlink:href="https://ja.wikipedia.org/wiki/畠山義就" xlink:title="【密約成立】吉野潜伏中だが、山名宗全からの軍事同盟の誘いに応じる" target="_blank">
+<text xml:space="preserve" text-anchor="middle" x="389" y="-228" font-family="MS Gothic,Hiragino Kaku Gothic Pro W3,sans-serif" font-size="20.00" fill="#bb0000">畠山義就</text>
+</a>
+</g>
+</g>
+<!-- Yamana_Sozen&#45;&gt;Hatakeyama_Yoshinari -->
+<g id="edge5" class="edge">
+<title>Yamana_Sozen-&gt;Hatakeyama_Yoshinari</title>
+<g id="a_edge5"><a xlink:title="【電撃同盟】貞親・細川に対抗するため、吉野の義就に秘密裏に使者を送り結託">
+<path fill="none" stroke="#0033aa" stroke-width="3" stroke-dasharray="5,2" d="M283.97,-286.52C301.99,-277.51 323.53,-266.74 342.4,-257.3"/>
+<polygon fill="#0033aa" stroke="#0033aa" stroke-width="3" points="343.49,-259.89 349.39,-253.8 340.98,-254.88 343.49,-259.89"/>
+</a>
+</g>
+</g>
+<!-- Yamana_Sozen&#45;&gt;Shiba_Yoshikado -->
+<g id="edge6" class="edge">
+<title>Yamana_Sozen-&gt;Shiba_Yoshikado</title>
+<g id="a_edge6"><a xlink:title="家督を奪われた義廉を全面的に擁護し、復讐を誓う">
+<path fill="none" stroke="#00aa00" stroke-width="2.5" d="M245,-325.55C245,-363.61 245,-447.86 245,-492.66"/>
+<polygon fill="#00aa00" stroke="#00aa00" stroke-width="2.5" points="242.2,-492.39 245,-500.39 247.8,-492.39 242.2,-492.39"/>
+</a>
+</g>
+</g>
+<!-- Yamana_Noritoyo -->
+<g id="node12" class="node">
+<title>Yamana_Noritoyo</title>
+<g id="a_node12"><a xlink:href="https://ja.wikipedia.org/wiki/山名教豊" xlink:title="宗全の嫡男" target="_blank">
+<text xml:space="preserve" text-anchor="middle" x="101" y="-301.8" font-family="MS Gothic,Hiragino Kaku Gothic Pro W3,sans-serif" font-size="14.00" fill="#cccccc">山名教豊</text>
+</a>
+</g>
+</g>
+<!-- Isshiki_Yoshinao -->
+<g id="node13" class="node">
+<title>Isshiki_Yoshinao</title>
+<g id="a_node13"><a xlink:href="https://ja.wikipedia.org/wiki/一色義直" xlink:title="山名派四職。この時点では直接エッジなし" target="_blank">
+<text xml:space="preserve" text-anchor="middle" x="173" y="-445.2" font-family="MS Gothic,Hiragino Kaku Gothic Pro W3,sans-serif" font-size="16.00" fill="#cccccc">一色義直</text>
+</a>
+</g>
+</g>
+<!-- Toki_Mochimasu -->
+<g id="node14" class="node">
+<title>Toki_Mochimasu</title>
+<g id="a_node14"><a xlink:href="https://ja.wikipedia.org/wiki/土岐持益" xlink:title="美濃守護" target="_blank">
+<text xml:space="preserve" text-anchor="middle" x="101" y="-445.8" font-family="MS Gothic,Hiragino Kaku Gothic Pro W3,sans-serif" font-size="14.00" fill="#cccccc">土岐持益</text>
+</a>
+</g>
+</g>
+<!-- Saito_Toshinaga -->
+<g id="node15" class="node">
+<title>Saito_Toshinaga</title>
+<g id="a_node15"><a xlink:href="https://ja.wikipedia.org/wiki/斎藤利永" xlink:title="美濃守護代" target="_blank">
+<text xml:space="preserve" text-anchor="middle" x="29" y="-517.8" font-family="MS Gothic,Hiragino Kaku Gothic Pro W3,sans-serif" font-size="14.00" fill="#cccccc">斎藤利永</text>
+</a>
+</g>
+</g>
+<!-- Honda_Seisen -->
+<g id="node17" class="node">
+<title>Honda_Seisen</title>
+<g id="a_node17"><a xlink:title="義就の側近">
+<text xml:space="preserve" text-anchor="middle" x="389" y="-13.8" font-family="MS Gothic,Hiragino Kaku Gothic Pro W3,sans-serif" font-size="14.00" fill="#cccccc">誉田誓専</text>
+</a>
+</g>
+</g>
+<!-- Kai_Joji -->
+<g id="node19" class="node">
+<title>Kai_Joji</title>
+<g id="a_node19"><a xlink:href="https://ja.wikipedia.org/wiki/甲斐常治" xlink:title="義廉を支える守護代" target="_blank">
+<text xml:space="preserve" text-anchor="middle" x="317" y="-589.8" font-family="MS Gothic,Hiragino Kaku Gothic Pro W3,sans-serif" font-size="14.00" fill="#cccccc">甲斐常治</text>
+</a>
+</g>
+</g>
+<!-- Asakura_Takakage -->
+<g id="node20" class="node">
+<title>Asakura_Takakage</title>
+<g id="a_node20"><a xlink:href="https://ja.wikipedia.org/wiki/朝倉孝景" xlink:title="斯波家重臣。義敏の復権に激しく反発" target="_blank">
+<text xml:space="preserve" text-anchor="middle" x="173" y="-589.2" font-family="MS Gothic,Hiragino Kaku Gothic Pro W3,sans-serif" font-size="16.00" fill="#bb0000">朝倉孝景</text>
+</a>
+</g>
+</g>
+<!-- Asakura_Takakage&#45;&gt;Shiba_Yoshitoshi -->
+<g id="edge14" class="edge">
+<title>Asakura_Takakage-&gt;Shiba_Yoshitoshi</title>
+<g id="a_edge14"><a xlink:title="下剋上で追放した義敏の復権を絶対に認めず、義廉を支持">
+<path fill="none" stroke="#aa0000" stroke-width="2.5" d="M204.65,-586.97C226.95,-582.27 257.57,-576.32 284.8,-572.8 472.32,-548.57 521.68,-567.43 709.2,-543.2 730.98,-540.39 754.93,-536.02 775.06,-531.97"/>
+<polygon fill="#aa0000" stroke="#aa0000" stroke-width="2.5" points="775.44,-534.76 782.71,-530.41 774.31,-529.27 775.44,-534.76"/>
+</a>
+</g>
+</g>
+<!-- Oda_Gohiro -->
+<g id="node21" class="node">
+<title>Oda_Gohiro</title>
+<g id="a_node21"><a xlink:title="尾張守護代">
+<text xml:space="preserve" text-anchor="middle" x="101" y="-589.8" font-family="MS Gothic,Hiragino Kaku Gothic Pro W3,sans-serif" font-size="14.00" fill="#cccccc">織田郷広</text>
+</a>
+</g>
+</g>
+<!-- Hosokawa_Katsumoto -->
+<g id="node22" class="node">
+<title>Hosokawa_Katsumoto</title>
+<g id="a_node22"><a xlink:href="https://ja.wikipedia.org/wiki/細川勝元" xlink:title="幕府管領（前職）。貞親の独断に不快感を持つが、まだ静観の構え" target="_blank">
+<text xml:space="preserve" text-anchor="middle" x="821" y="-298.8" font-family="MS Gothic,Hiragino Kaku Gothic Pro W3,sans-serif" font-size="24.00" fill="#0033aa">細川勝元</text>
+</a>
+</g>
+</g>
+<!-- Hosokawa_Katsumoto&#45;&gt;Ashikaga_Yoshimi -->
+<g id="edge9" class="edge">
+<title>Hosokawa_Katsumoto-&gt;Ashikaga_Yoshimi</title>
+<g id="a_edge9"><a xlink:title="将来の将軍として義視の後見を継続">
+<path fill="none" stroke="#0033aa" stroke-width="2" d="M817.33,-324.35C805.6,-382.98 768.97,-566.14 754.74,-637.31"/>
+<polygon fill="#0033aa" stroke="#0033aa" stroke-width="2" points="751.99,-636.75 753.17,-645.15 757.48,-637.85 751.99,-636.75"/>
+</a>
+</g>
+</g>
+<!-- Hosokawa_Katsumoto&#45;&gt;Ise_Sadanika -->
+<g id="edge8" class="edge">
+<title>Hosokawa_Katsumoto-&gt;Ise_Sadanika</title>
+<g id="a_edge8"><a xlink:title="貞親のあまりに強硬な独裁ぶりに警戒と不快感を強める">
+<path fill="none" stroke="#aa0000" stroke-width="1.5" stroke-dasharray="1,5" d="M814.51,-324.19C799.43,-365.21 759.46,-467.28 709.2,-543.2 661.69,-614.96 638.9,-624.67 580.2,-687.6 548.11,-722 510.03,-760.75 485.7,-785.26"/>
+<polygon fill="#aa0000" stroke="#aa0000" stroke-width="1.5" points="483.87,-783.14 480.22,-790.78 487.84,-787.08 483.87,-783.14"/>
+</a>
+</g>
+</g>
+<!-- Hosokawa_Katsumoto&#45;&gt;Yamana_Sozen -->
+<g id="edge10" class="edge">
+<title>Hosokawa_Katsumoto-&gt;Yamana_Sozen</title>
+<g id="a_edge10"><a xlink:title="姻戚関係。貞親の暴走を止めるため、裏で連絡を取り合い始める">
+<path fill="none" stroke="#00aa00" stroke-width="1.5" stroke-dasharray="5,2" d="M777.23,-306C674.28,-306 416.79,-306 301.9,-306"/>
+<polygon fill="#00aa00" stroke="#00aa00" stroke-width="1.5" points="302.17,-303.2 294.17,-306 302.17,-308.8 302.17,-303.2"/>
+</a>
+</g>
+</g>
+<!-- Hatakeyama_Masanaga -->
+<g id="node27" class="node">
+<title>Hatakeyama_Masanaga</title>
+<g id="a_node27"><a xlink:href="https://ja.wikipedia.org/wiki/畠山政長" xlink:title="幕府管領（現職）。当主の座を維持しているが、義就の影に怯える" target="_blank">
+<text xml:space="preserve" text-anchor="middle" x="677" y="-228" font-family="MS Gothic,Hiragino Kaku Gothic Pro W3,sans-serif" font-size="20.00" fill="#0055bb">畠山政長</text>
+</a>
+</g>
+</g>
+<!-- Hosokawa_Katsumoto&#45;&gt;Hatakeyama_Masanaga -->
+<g id="edge12" class="edge">
+<title>Hosokawa_Katsumoto-&gt;Hatakeyama_Masanaga</title>
+<g id="a_edge12"><a xlink:title="政長への支持は継続">
+<path fill="none" stroke="#0033aa" stroke-width="2" d="M784.29,-287.65C765.47,-278.24 742.38,-266.69 722.44,-256.72"/>
+<polygon fill="#0033aa" stroke="#0033aa" stroke-width="2" points="723.76,-254.25 715.36,-253.18 721.26,-259.26 723.76,-254.25"/>
+</a>
+</g>
+</g>
+<!-- Hosokawa_Shigetoshi -->
+<g id="node23" class="node">
+<title>Hosokawa_Shigetoshi</title>
+<g id="a_node23"><a xlink:href="https://ja.wikipedia.org/wiki/細川成之" xlink:title="阿波細川家守護。軍事行動前につき静観" target="_blank">
+<text xml:space="preserve" text-anchor="middle" x="965" y="-373.8" font-family="MS Gothic,Hiragino Kaku Gothic Pro W3,sans-serif" font-size="14.00" fill="#cccccc">細川成之</text>
+</a>
+</g>
+</g>
+<!-- Hosokawa_Mochiharu -->
+<g id="node24" class="node">
+<title>Hosokawa_Mochiharu</title>
+<g id="a_node24"><a xlink:href="https://ja.wikipedia.org/wiki/細川持賢" xlink:title="淡路細川家当主。軍事行動前につき静観" target="_blank">
+<text xml:space="preserve" text-anchor="middle" x="965" y="-229.8" font-family="MS Gothic,Hiragino Kaku Gothic Pro W3,sans-serif" font-size="14.00" fill="#cccccc">細川持賢</text>
+</a>
+</g>
+</g>
+<!-- Kyogoku_Mochikiyo -->
+<g id="node25" class="node">
+<title>Kyogoku_Mochikiyo</title>
+<g id="a_node25"><a xlink:href="https://ja.wikipedia.org/wiki/京極持清" xlink:title="細川派の有力守護。この時点では静観" target="_blank">
+<text xml:space="preserve" text-anchor="middle" x="893" y="-445.2" font-family="MS Gothic,Hiragino Kaku Gothic Pro W3,sans-serif" font-size="16.00" fill="#cccccc">京極持清</text>
+</a>
+</g>
+</g>
+<!-- Akamatsu_Masanori -->
+<g id="node26" class="node">
+<title>Akamatsu_Masanori</title>
+<g id="a_node26"><a xlink:href="https://ja.wikipedia.org/wiki/赤松政則" xlink:title="細川派。貞親への接近を試みるが直接エッジなし" target="_blank">
+<text xml:space="preserve" text-anchor="middle" x="893" y="-85.2" font-family="MS Gothic,Hiragino Kaku Gothic Pro W3,sans-serif" font-size="16.00" fill="#cccccc">赤松政則</text>
+</a>
+</g>
+</g>
+<!-- Hatakeyama_Masanaga&#45;&gt;Hatakeyama_Yoshinari -->
+<g id="edge11" class="edge">
+<title>Hatakeyama_Masanaga-&gt;Hatakeyama_Yoshinari</title>
+<g id="a_edge11"><a xlink:title="家督を巡る宿敵。義就と山名の接近を警戒">
+<path fill="none" stroke="#aa0000" stroke-width="3" d="M626.73,-234C573.98,-234 491.57,-234 438.95,-234"/>
+<polygon fill="#aa0000" stroke="#aa0000" stroke-width="3" points="626.51,-236.8 634.51,-234 626.51,-231.2 626.51,-236.8"/>
+<polygon fill="#aa0000" stroke="#aa0000" stroke-width="3" points="439.11,-231.2 431.11,-234 439.11,-236.8 439.11,-231.2"/>
+</a>
+</g>
+</g>
+<!-- Yusa_Kunisuke -->
+<g id="node28" class="node">
+<title>Yusa_Kunisuke</title>
+<g id="a_node28"><a xlink:href="https://ja.wikipedia.org/wiki/遊佐国助" xlink:title="畠山家政長派守護代" target="_blank">
+<text xml:space="preserve" text-anchor="middle" x="677" y="-13.8" font-family="MS Gothic,Hiragino Kaku Gothic Pro W3,sans-serif" font-size="14.00" fill="#cccccc">遊佐国助</text>
+</a>
+</g>
+</g>
+<!-- Jimbo_Nagashige -->
+<g id="node29" class="node">
+<title>Jimbo_Nagashige</title>
+<g id="a_node29"><a xlink:href="https://ja.wikipedia.org/wiki/神保長誠" xlink:title="畠山家政長派重臣" target="_blank">
+<text xml:space="preserve" text-anchor="middle" x="749" y="-13.8" font-family="MS Gothic,Hiragino Kaku Gothic Pro W3,sans-serif" font-size="14.00" fill="#cccccc">神保長誠</text>
+</a>
+</g>
+</g>
+<!-- Shiba_Yoshitoshi&#45;&gt;Shiba_Yoshikado -->
+<g id="edge13" class="edge">
+<title>Shiba_Yoshitoshi-&gt;Shiba_Yoshikado</title>
+<g id="a_edge13"><a xlink:title="貞親の力で家督を奪い返した義敏と、拒否する義廉の激しい対立">
+<path fill="none" stroke="#aa0000" stroke-width="3" d="M774.29,-511.12C754.36,-507 730.76,-502.83 709.2,-500.8 555.38,-486.35 371.93,-505.38 289.26,-515.89"/>
+<polygon fill="#aa0000" stroke="#aa0000" stroke-width="3" points="773.64,-513.84 782.05,-512.78 774.81,-508.37 773.64,-513.84"/>
+<polygon fill="#aa0000" stroke="#aa0000" stroke-width="3" points="288.95,-513.11 281.37,-516.91 289.67,-518.66 288.95,-513.11"/>
+</a>
+</g>
+</g>
+<!-- Shiba_Mochitane -->
+<g id="node31" class="node">
+<title>Shiba_Mochitane</title>
+<g id="a_node31"><a xlink:href="https://ja.wikipedia.org/wiki/斯波持種" xlink:title="斯波一門。義敏の復権を支えるが直接エッジなし" target="_blank">
+<text xml:space="preserve" text-anchor="middle" x="677" y="-517.8" font-family="MS Gothic,Hiragino Kaku Gothic Pro W3,sans-serif" font-size="14.00" fill="#cccccc">斯波持種</text>
+</a>
+</g>
+</g>
+<!-- Ouchi_Masahiro -->
+<g id="node32" class="node">
+<title>Ouchi_Masahiro</title>
+<g id="a_node32"><a xlink:href="https://ja.wikipedia.org/wiki/大内政弘" xlink:title="西国大名。この時点ではまだ静観（後に西軍の主力へ）" target="_blank">
+<text xml:space="preserve" text-anchor="middle" x="101" y="-156.6" font-family="MS Gothic,Hiragino Kaku Gothic Pro W3,sans-serif" font-size="18.00" fill="#cccccc">大内政弘</text>
+</a>
+</g>
+</g>
+<!-- Rokkaku_Takayori -->
+<g id="node33" class="node">
+<title>Rokkaku_Takayori</title>
+<g id="a_node33"><a xlink:href="https://ja.wikipedia.org/wiki/六角高頼" xlink:title="近江守護" target="_blank">
+<text xml:space="preserve" text-anchor="middle" x="533" y="-157.8" font-family="MS Gothic,Hiragino Kaku Gothic Pro W3,sans-serif" font-size="14.00" fill="#cccccc">六角高頼</text>
+</a>
+</g>
+</g>
+<!-- Ashikaga_Shigeuji -->
+<g id="node34" class="node">
+<title>Ashikaga_Shigeuji</title>
+<g id="a_node34"><a xlink:href="https://ja.wikipedia.org/wiki/足利成氏" xlink:title="古河公方" target="_blank">
+<text xml:space="preserve" text-anchor="middle" x="1109" y="-697.2" font-family="MS Gothic,Hiragino Kaku Gothic Pro W3,sans-serif" font-size="16.00" fill="#333333">足利成氏</text>
+</a>
+</g>
+</g>
+<!-- Ashikaga_Masatomo -->
+<g id="node36" class="node">
+<title>Ashikaga_Masatomo</title>
+<g id="a_node36"><a xlink:href="https://ja.wikipedia.org/wiki/足利政知" xlink:title="堀越公方" target="_blank">
+<text xml:space="preserve" text-anchor="middle" x="893" y="-661.8" font-family="MS Gothic,Hiragino Kaku Gothic Pro W3,sans-serif" font-size="14.00" fill="#333333">足利政知</text>
+</a>
+</g>
+</g>
+<!-- Ashikaga_Shigeuji&#45;&gt;Ashikaga_Masatomo -->
+<g id="edge18" class="edge">
+<title>Ashikaga_Shigeuji-&gt;Ashikaga_Masatomo</title>
+<g id="a_edge18"><a xlink:title="関東の対立">
+<path fill="none" stroke="#aa0000" stroke-width="1.5" d="M1067.04,-695.01C1027.81,-688.47 969.7,-678.78 931.6,-672.43"/>
+<polygon fill="#aa0000" stroke="#aa0000" stroke-width="1.5" points="1066.54,-697.76 1074.89,-696.31 1067.46,-692.24 1066.54,-697.76"/>
+<polygon fill="#aa0000" stroke="#aa0000" stroke-width="1.5" points="932.48,-669.74 924.13,-671.19 931.56,-675.27 932.48,-669.74"/>
+</a>
+</g>
+</g>
+<!-- Uesugi_Fisahaki -->
+<g id="node35" class="node">
+<title>Uesugi_Fisahaki</title>
+<g id="a_node35"><a xlink:href="https://ja.wikipedia.org/wiki/上杉房顕" xlink:title="物故者（今年2月に陣没）" target="_blank">
+<text xml:space="preserve" text-anchor="middle" x="893" y="-769.8" font-family="MS Gothic,Hiragino Kaku Gothic Pro W3,sans-serif" font-size="14.00" fill="#cccccc">上杉房顕</text>
+</a>
+</g>
+</g>
+</g>
+</svg>
