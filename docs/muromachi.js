@@ -1,6 +1,13 @@
+// 状態をオブジェクトに集約
+const viewport = {
+    scale: 1,
+    pointX: 0,
+    pointY: 0
+};
+
 let timelineData = [];
 let currentIndex = 0;
-let scale = 1, pointX = 0, pointY = 0, isDragging = false, startX = 0, startY = 0;
+let isDragging = false, startX = 0, startY = 0;
 const container = document.getElementById('svg-container');
 const zoomArea = document.getElementById('zoom-area');
 
@@ -17,6 +24,8 @@ async function init() {
     });
     selectEvent(0);
 }
+
+let isFirstLoad = true; // 初回読み込みフラグ
 
 async function selectEvent(i) {
     if (i < 0 || i >= timelineData.length) return;
@@ -39,7 +48,15 @@ async function selectEvent(i) {
     try {
         const svgRes = await fetch(ev.file);
         container.innerHTML = await svgRes.text();
-        scale = 1; pointX = 0; pointY = 0;
+
+        // 初回ロード時のみ強制リセット
+        if (isFirstLoad) {
+            viewport.scale = 1;
+            viewport.pointX = 0;
+            viewport.pointY = 0;
+            isFirstLoad = false; // 一度通ったらフラグを倒す
+        }
+
         updateTransform();
     } catch (e) {
         container.innerHTML = '図の読み込みに失敗しました';
@@ -47,24 +64,27 @@ async function selectEvent(i) {
 }
 
 function updateTransform() {
-    container.style.transform = `translate(${pointX}px, ${pointY}px) scale(${scale})`;
+    container.style.transform = `translate(${viewport.pointX}px, ${viewport.pointY}px) scale(${viewport.scale})`;
 }
 
 zoomArea.addEventListener('mousedown', (e) => {
     isDragging = true;
-    startX = e.clientX - pointX;
-    startY = e.clientY - pointY;
+    startX = e.clientX - viewport.pointX;
+    startY = e.clientY - viewport.pointY;
 });
+
 window.addEventListener('mousemove', (e) => {
     if (!isDragging) return;
-    pointX = e.clientX - startX;
-    pointY = e.clientY - startY;
+    viewport.pointX = e.clientX - startX;
+    viewport.pointY = e.clientY - startY;
     updateTransform();
 });
+
 window.addEventListener('mouseup', () => isDragging = false);
+
 zoomArea.addEventListener('wheel', (e) => {
     e.preventDefault();
-    scale = Math.min(Math.max(scale + (e.deltaY > 0 ? -0.1 : 0.1), 0.2), 3);
+    viewport.scale = Math.min(Math.max(viewport.scale + (e.deltaY > 0 ? -0.1 : 0.1), 0.2), 3);
     updateTransform();
 }, { passive: false });
 
