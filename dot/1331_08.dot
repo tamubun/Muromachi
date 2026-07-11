@@ -13,95 +13,100 @@ digraph timeline_1331_08 {
     node [
         shape = box;
         style = "filled";
-        fillcolor = "#fcfcfc"; 
-        color = "#fcfcfc";     
+        fillcolor = "#fcfcfc";
+        color = "#fcfcfc";
         penwidth = 0.1;
         fontname = "sans-serif";
-        width = 1.4;           
+        width = 1.4;
         height = 0.3;
         fixedsize = true;
     ];
 
     # 3. エッジデフォルト設定
     edge [
-        dir = forward;         
+        dir = forward;
         arrowhead = normal;
         fontname = "sans-serif";
-        fontsize = 10;
     ];
 
-    # ==========================================
-    # 4. ノード定義 (CSVのX,Y座標をそのままposに反映)
-    # ==========================================
-    
-    # --- 大覚寺統・討幕過激派 / 宮方 (fontcolor = "#cc0000") ---
-    godaigo_tenno        [label="後醍醐天皇", pos="-4.82,6.44!", fontcolor="#cc0000", fontsize=16, tooltip="大覚寺統の天皇。挙兵計画が漏洩し、急遽京都を脱出して笠置山へ拠る。", URL="https://ja.wikipedia.org/wiki/後醍醐天皇", target="_blank"];
-    moriyoshi_shinnou    [label="護良親王", pos="-5.08,5.77!", fontcolor="#cc0000", fontsize=14, tooltip="後醍醐天皇の皇子。天台座主から還俗し、挙兵して吉野山などでゲリラ戦を展開。", URL="https://ja.wikipedia.org/wiki/護良親王", target="_blank"];
-    munenaga_shinnou     [label="宗良親王", pos="-4.21,6.89!", fontcolor="#cc0000", fontsize=13, tooltip="後醍醐天皇の皇子。比叡山妙法院に入り、父の討幕運動を連動して支える。", URL="https://ja.wikipedia.org/wiki/宗良親王", target="_blank"];
-    tsuneyoshi_shinnou   [label="恒良親王", pos="-4.67,5.92!", fontcolor="#cc0000", fontsize=12, tooltip="後醍醐天皇の皇子。宮方の象徴として行動を共にする。", URL="https://ja.wikipedia.org/wiki/恒良親王", target="_blank"];
-    hino_suketomo        [label="日野資朝", pos="-5.88,5.62!", fontcolor="#cc0000", fontsize=12, tooltip="正中の変ののち佐渡に流刑中。遠国から討幕の行く末を注視。", URL="https://ja.wikipedia.org/wiki/日野資朝", target="_blank"];
-    hino_toshimoto       [label="日野俊基", pos="-5.41,5.94!", fontcolor="#cc0000", fontsize=12, tooltip="再度討幕を謀ったとして、すでに幕府に捕縛され鎌倉へ護送されている。", URL="https://ja.wikipedia.org/wiki/日野俊基", target="_blank"];
-    madenokoji_nobufusa  [label="万里小路宣房", pos="-4.12,5.21!", fontcolor="#cc0000", fontsize=13, tooltip="後醍醐天皇の側近。実務派公卿として緊迫する局面の朝政を支える。", URL="https://ja.wikipedia.org/wiki/万里小路宣房", target="_blank"];
-    kitabatake_chikafusa [label="北畠親房", pos="-3.85,3.62!", fontcolor="#cc0000", fontsize=14, tooltip="大覚寺統を支える重鎮。後醍醐天皇の思想・行動に深く共鳴。", URL="https://ja.wikipedia.org/wiki/北畠親房", target="_blank"];
-    kusunoki_masashige   [label="楠木正成", pos="-4.85,-1.12!", fontcolor="#cc0000", fontsize=15, tooltip="河内の新興武士。後醍醐天皇の召しに応じて赤坂城で挙兵、悪党戦術で幕府を翻弄。", URL="https://ja.wikipedia.org/wiki/楠木正成", target="_blank"];
-    kusunoki_masasue     [label="楠木正季", pos="-5.21,-1.48!", fontcolor="#cc0000", fontsize=12, tooltip="楠木正成の弟。兄とともに赤坂城に籠城し、宮方として奮戦。", URL="https://ja.wikipedia.org/wiki/楠木正季", target="_blank"];
-    horikawa_tomochika   [label="堀川具親", pos="-5.15,4.85!", fontcolor="#cc0000", fontsize=12, tooltip="宮方の公卿。後醍醐天皇の討幕運動に関与。", URL="https://ja.wikipedia.org/wiki/堀川具親", target="_blank"];
-    shijo_takadata       [label="四条隆資", pos="-4.72,4.98!", fontcolor="#cc0000", fontsize=12, tooltip="後醍醐天皇の側近。笠置山潜幸に同行し、徹底抗戦を主張。", URL="https://ja.wikipedia.org/wiki/四条隆資", target="_blank"];
-    chigusa_tadaaki      [label="千種忠顕", pos="-5.65,4.62!", fontcolor="#cc0000", fontsize=13, tooltip="後醍醐天皇の近臣。笠置山への同行、挙兵の実務などアクティブに活動。", URL="https://ja.wikipedia.org/wiki/千種忠顕", target="_blank"];
-    monbun_kenshin       [label="文観", pos="5.82,-4.42!", fontcolor="#cc0000", fontsize=13, tooltip="真言密教の怪僧。引き続き呪術・調伏の面から後醍醐の討幕を過激に支援。", URL="https://ja.wikipedia.org/wiki/文観", target="_blank"];
+    # 4. ノード定義
+    godaigo_tenno        [label="後醍醐天皇", pos="-4.82,6.44!", fontcolor="#cc0000", tooltip="大覚寺統。討幕を画策する。", URL="https://ja.wikipedia.org/wiki/後醍醐天皇", target="_blank"];
+    moriyoshi_shinnou    [label="護良親王", pos="-5.08,5.77!", fontcolor="#cc0000", tooltip="後醍醐天皇の皇子。討幕の挙兵。", URL="https://ja.wikipedia.org/wiki/護良親王", target="_blank"];
+    munenaga_shinnou     [label="宗良親王", pos="-4.21,6.89!", fontcolor="#cc0000", tooltip="後醍醐天皇の皇子。", URL="https://ja.wikipedia.org/wiki/宗良親王", target="_blank"];
+    tsuneyoshi_shinnou   [label="恒良親王", pos="-4.67,5.92!", fontcolor="#cc0000", tooltip="後醍醐天皇の皇子。", URL="https://ja.wikipedia.org/wiki/恒良親王", target="_blank"];
+    hino_suketomo        [label="日野資朝", pos="-5.88,5.62!", fontcolor="#cc0000", tooltip="討幕計画の主要人物。", URL="https://ja.wikipedia.org/wiki/日野資朝", target="_blank"];
+    hino_toshimoto       [label="日野俊基", pos="-5.41,5.94!", fontcolor="#cc0000", tooltip="討幕計画の主要人物。", URL="https://ja.wikipedia.org/wiki/日野俊基", target="_blank"];
+    madenokoji_nobufusa  [label="万里小路宣房", pos="-4.12,5.21!", fontcolor="#000000", tooltip="後醍醐の側近。", URL="https://ja.wikipedia.org/wiki/万里小路宣房", target="_blank"];
+    kitabatake_chikafusa [label="北畠親房", pos="-3.85,3.62!", fontcolor="#000000", tooltip="後醍醐の側近。公卿。", URL="https://ja.wikipedia.org/wiki/北畠親房", target="_blank"];
+    kusunoki_masashige   [label="楠木正成", pos="-4.85,-1.12!", fontcolor="#cc0000", tooltip="河内の土豪。討幕の挙兵。", URL="https://ja.wikipedia.org/wiki/楠木正成", target="_blank"];
+    kusunoki_masasue     [label="楠木正季", pos="-5.21,-1.48!", fontcolor="#cc0000", tooltip="正成の弟。挙兵に参加。", URL="https://ja.wikipedia.org/wiki/楠木正季", target="_blank"];
+    horikawa_tomochika   [label="堀川具親", pos="-5.15,4.85!", fontcolor="#000000", tooltip="公卿。", URL="https://ja.wikipedia.org/wiki/堀川具親", target="_blank"];
+    shijo_takadata       [label="四条隆資", pos="-4.72,4.98!", fontcolor="#000000", tooltip="公卿。", URL="https://ja.wikipedia.org/wiki/四条隆資", target="_blank"];
+    chigusa_tadaaki      [label="千種忠顕", pos="-5.65,4.62!", fontcolor="#cc0000", tooltip="後醍醐の側近。", URL="https://ja.wikipedia.org/wiki/千種忠顕", target="_blank"];
+    kikuchi_taketoki     [label="菊池武時", pos="-6.15,-3.82!", fontcolor="#cc0000", tooltip="九州の有力武士。討幕に呼応。", URL="https://ja.wikipedia.org/wiki/菊池武時", target="_blank"];
 
-    # --- 持明院統 (fontcolor = "#0000cc") ---
-    gofushimi_in         [label="後伏見院", pos="-2.81,6.14!", fontcolor="#0000cc", fontsize=14, tooltip="持明院統の院。後醍醐の挙兵失脚に乗じて光厳天皇の即位を画策。", URL="https://ja.wikipedia.org/wiki/後伏見天皇", target="_blank"];
-    hanazono_in          [label="花園院", pos="-3.24,5.88!", fontcolor="#0000cc", fontsize=14, tooltip="持明院統の院。後醍醐の過激な行動を非難し、皇位の正統性を主張。", URL="https://ja.wikipedia.org/wiki/花園天皇", target="_blank"];
-    kogen_tenno          [label="光厳天皇", pos="-2.45,6.67!", fontcolor="#0000cc", fontsize=15, tooltip="持明院統の新たなる天皇。幕府の後押しを受けて神器なき即位へ。", URL="https://ja.wikipedia.org/wiki/光厳天皇", target="_blank"];
+    gofushimi_in         [label="後伏見院", pos="-2.81,6.14!", fontcolor="#0000cc", tooltip="持明院統。幕府の支持を受ける。", URL="https://ja.wikipedia.org/wiki/後伏見天皇", target="_blank"];
+    hanazono_in          [label="花園院", pos="-3.24,5.88!", fontcolor="#0000cc", tooltip="持明院統。", URL="https://ja.wikipedia.org/wiki/花園天皇", target="_blank"];
+    kogen_tenno          [label="光厳天皇", pos="-2.45,6.67!", fontcolor="#0000cc", tooltip="持明院統。", URL="https://ja.wikipedia.org/wiki/光厳天皇", target="_blank"];
+    gofukakusa_in        [label="後深草院", pos="-2.11,5.66!", fontcolor="#aaaaaa", tooltip="持明院統。", URL="https://ja.wikipedia.org/wiki/後深草天皇", target="_blank"];
 
-    # --- 鎌倉幕府中枢・六波羅 (fontcolor = "#004400") ---
-    hojo_takatoki        [label="北条高時", pos="2.41,4.89!", fontcolor="#004400", fontsize=15, tooltip="鎌倉幕府第14代執権・得宗。元弘の変に際し、大規模な軍勢を京へ派遣。", URL="https://ja.wikipedia.org/wiki/北条高時", target="_blank"];
-    hojo_moritoki        [label="北条守時", pos="2.65,4.42!", fontcolor="#004400", fontsize=13, tooltip="第16代執権。赤橋流北条氏。緊迫する政局の舵取りに奔走。", URL="https://ja.wikipedia.org/wiki/北条守時", target="_blank"];
-    hojo_nakatoki        [label="北条仲時", pos="2.15,3.88!", fontcolor="#004400", fontsize=13, tooltip="六波羅探題北方。京都の治安維持と、笠置山に拠る後醍醐の追討を指揮。", URL="https://ja.wikipedia.org/wiki/北条仲時", target="_blank"];
-    nagasaki_enki        [label="-0.12,0.32!", pos="-0.12,0.32!", fontcolor="#004400", fontsize=13, tooltip="得宗家内管領の宿老。得宗高時を背後から操り、強硬な軍事弾圧を主導。", URL="https://ja.wikipedia.org/wiki/長崎円喜", target="_blank"];
-    nagasaki_takasuke    [label="長崎高資", pos="0.24,0.48!", fontcolor="#004400", fontsize=13, tooltip="内管領。円喜とともに、討幕派の徹底的な検挙と抹殺を推進。", URL="https://ja.wikipedia.org/wiki/長崎高資", target="_blank"];
+    hojo_takatoki        [label="北条高時", pos="2.41,4.89!", fontcolor="#004400", tooltip="鎌倉幕府得宗。", URL="https://ja.wikipedia.org/wiki/北条高時", target="_blank"];
+    hojo_moritoki        [label="北条守時", pos="2.65,4.42!", fontcolor="#004400", tooltip="鎌倉幕府執権。", URL="https://ja.wikipedia.org/wiki/北条守時", target="_blank"];
+    hojo_nakatoki        [label="北条仲時", pos="2.15,3.88!", fontcolor="#004400", tooltip="六波羅探題北方。", URL="https://ja.wikipedia.org/wiki/北条仲時", target="_blank"];
+    nagasaki_takasuke    [label="長崎高資", pos="0.24,0.48!", fontcolor="#004400", tooltip="鎌倉幕府内管領。", URL="https://ja.wikipedia.org/wiki/長崎高資", target="_blank"];
+    nagasaki_enki        [label="長崎円喜", pos="-0.12,0.32!", fontcolor="#004400", tooltip="鎌倉幕府内管領。", URL="https://ja.wikipedia.org/wiki/長崎円喜", target="_blank"];
+    uesugi_shigefusa     [label="上杉重房", pos="5.42,5.12!", fontcolor="#444444", tooltip="有力御家人。", URL="https://ja.wikipedia.org/wiki/上杉重房", target="_blank"];
 
-    # --- 幕府方武士・守護 (fontcolor = "#000000") ---
-    ashikaga_takauji     [label="足利高氏", pos="1.15,-0.85!", fontcolor="#000000", fontsize=14, tooltip="足利宗家当主。幕府の命により、本意ならずも宮方追討軍の大将として上洛。", URL="https://ja.wikipedia.org/wiki/足利尊氏", target="_blank"];
-    ashikaga_tadayoshi   [label="足利直義", pos="1.48,-1.24!", fontcolor="#000000", fontsize=13, tooltip="高氏の弟。兄と行動を共にし、足利一族の軍勢を率いて上洛。", URL="https://ja.wikipedia.org/wiki/足利直義", target="_blank"];
-    ko_no_moronao        [label="高師直", pos="1.82,-1.62!", fontcolor="#000000", fontsize=13, tooltip="足利家の執事。高氏の側近として軍事・実務を統率。", URL="https://ja.wikipedia.org/wiki/高師直", target="_blank"];
-    sasaki_doyo          [label="佐々木道誉", pos="0.68,-3.62!", fontcolor="#000000", fontsize=13, tooltip="近江守護家。幕府軍の一員として宮方制圧に参加しつつ、情勢を洞察。", URL="https://ja.wikipedia.org/wiki/佐々木道誉", target="_blank"];
-    toki_yorisada        [label="土岐頼貞", pos="2.12,1.65!", fontcolor="#000000", fontsize=12, tooltip="美濃守護。美濃の軍勢を率いて幕府方の追討軍に加わる。", URL="https://ja.wikipedia.org/wiki/土岐頼貞", target="_blank"];
+    ando_suehisa         [label="安藤季長", pos="4.52,2.41!", fontcolor="#aaaaaa", tooltip="安藤氏の乱で敗訴し、幕府から退場。", URL="https://ja.wikipedia.org/wiki/安藤氏_(鎌倉時代)", target="_blank"];
+    ando_suesada         [label="安藤季貞", pos="4.88,1.95!", fontcolor="#aaaaaa", tooltip="安藤氏の乱で敗訴し、幕府から退場。", URL="https://ja.wikipedia.org/wiki/安藤氏_(鎌倉時代)", target="_blank"];
 
-    # --- 諸国武士・宗教勢力・その他 (fontcolor = "#444444") ---
-    kikuchi_taketoki     [label="菊池武時", pos="-6.15,-3.82!", fontcolor="#444444", fontsize=12, tooltip="肥後の有力武士。鎮西探題の監視下にありつつも、心中では宮方に共鳴。", URL="https://ja.wikipedia.org/wiki/菊池武時", target="_blank"];
-    kira_sadamitsu       [label="吉良貞満", pos="1.12,2.15!", fontcolor="#444444", fontsize=11, tooltip="足利一門の有力武士。東国における足利の影響力を支える。", URL="https://ja.wikipedia.org/wiki/吉良貞満", target="_blank"];
-    shimazu_sadahisa     [label="島津貞久", pos="-5.72,-5.12!", fontcolor="#444444", fontsize=11, tooltip="薩摩守護。九州における幕府足場を固めつつ、中央の政情を注視。", URL="https://ja.wikipedia.org/wiki/島津貞久", target="_blank"];
-    ouchi_nagahiro       [label="大内長弘", pos="-3.45,-2.12!", fontcolor="#444444", fontsize=11, tooltip="周防の有力武士。西国における軍事的動向を窺う。", URL="https://ja.wikipedia.org/wiki/大内長弘", target="_blank"];
-    muso_soseki          [label="夢窓疎石", pos="6.45,-3.85!", fontcolor="#444444", fontsize=12, tooltip="天下の衆望を集める禅僧。政治的激動から一定の距離を保ちつつ法を説く。", URL="https://ja.wikipedia.org/wiki/夢窓疎石", target="_blank"];
-    uesugi_shigefusa     [label="上杉重房", pos="5.42,5.12!", fontcolor="#444444", fontsize=11, tooltip="足利氏の姻戚・宿老として鎌倉の足利基盤を維持。", URL="https://ja.wikipedia.org/wiki/上杉重房", target="_blank"];
+    ashikaga_takauji     [label="足利高氏", pos="1.15,-0.85!", fontcolor="#000000", tooltip="鎌倉幕府の有力御家人。", URL="https://ja.wikipedia.org/wiki/足利尊氏", target="_blank"];
+    ashikaga_tadayoshi   [label="足利直義", pos="1.48,-1.24!", fontcolor="#000000", tooltip="足利高氏の弟。", URL="https://ja.wikipedia.org/wiki/足利直義", target="_blank"];
+    ko_no_moronao        [label="高師直", pos="1.82,-1.62!", fontcolor="#000000", tooltip="足利氏の執事。", URL="https://ja.wikipedia.org/wiki/高師直", target="_blank"];
+    kira_sadamitsu       [label="吉良貞義", pos="1.12,2.15!", fontcolor="#000000", tooltip="足利一門の有力者。", URL="https://ja.wikipedia.org/wiki/吉良貞義", target="_blank"];
+    sasaki_doyo          [label="佐々木道誉", pos="0.68,-3.62!", fontcolor="#000000", tooltip="幕府の有力御家人。", URL="https://ja.wikipedia.org/wiki/佐々木道誉", target="_blank"];
+    toki_yorisada        [label="土岐頼貞", pos="2.12,1.65!", fontcolor="#444444", tooltip="有力武士。", URL="https://ja.wikipedia.org/wiki/土岐頼貞", target="_blank"];
+    shimazu_sadahisa     [label="島津貞久", pos="-5.72,-5.12!", fontcolor="#444444", tooltip="有力武士。", URL="https://ja.wikipedia.org/wiki/島津貞久", target="_blank"];
+    ouchi_nagahiro       [label="大内長弘", pos="-3.45,-2.12!", fontcolor="#444444", tooltip="有力武士。", URL="https://ja.wikipedia.org/wiki/大内長弘", target="_blank"];
+    muso_soseki          [label="夢窓疎石", pos="6.45,-3.85!", fontcolor="#444444", tooltip="禅僧。", URL="https://ja.wikipedia.org/wiki/夢窓疎石", target="_blank"];
+    monbun_kenshin       [label="聞文謙信", pos="5.82,-4.42!", fontcolor="#444444", tooltip="僧侶。", URL="https://ja.wikipedia.org/wiki/聞文謙信", target="_blank"];
 
-    # ==========================================
-    # 5. エッジ定義 (元弘の変・緊迫の相関図)
-    # ==========================================
+    # 5. エッジ定義
+    edge [penwidth=2.8, arrowsize=1.0, color="#cc0000"];
+    godaigo_tenno -> moriyoshi_shinnou [tooltip="討幕の挙兵。"];
+    godaigo_tenno -> tsuneyoshi_shinnou [tooltip="討幕の挙兵。"];
+    godaigo_tenno -> kusunoki_masashige [tooltip="討幕の挙兵。"];
+    godaigo_tenno -> hino_suketomo [tooltip="討幕計画の指令。"];
+    godaigo_tenno -> hino_toshimoto [tooltip="討幕計画の指令。"];
+    godaigo_tenno -> madenokoji_nobufusa [tooltip="後醍醐の側近。"];
+    godaigo_tenno -> kitabatake_chikafusa [tooltip="後醍醐の側近。"];
+    godaigo_tenno -> chigusa_tadaaki [tooltip="後醍醐の側近。"];
+    godaigo_tenno -> kikuchi_taketoki [tooltip="討幕の挙兵。"];
 
-    # 【重要度：太】軍事侵攻・激しい弾圧・直接の下命
-    nagasaki_enki -> hojo_takatoki [penwidth=4.0, arrowsize=1.4, color="#005500", tooltip="内管領として得宗高時を主導し、反乱軍の徹底全滅を指示（幕政主導）"];
-    hojo_takatoki -> ashikaga_takauji [penwidth=4.0, arrowsize=1.4, color="#005500", tooltip="執権・得宗の命として、足利宗家に大規模な宮方追討軍の軍大将を命じる（追討軍下命）"];
-    hojo_nakatoki -> godaigo_tenno [penwidth=4.0, arrowsize=1.4, color="#004400", tooltip="六波羅探題軍を率いて、後醍醐天皇が立て籠もる笠置山を包囲・猛攻（笠置山蜂起追討）"];
-    hojo_nakatoki -> kusunoki_masashige [penwidth=4.0, arrowsize=1.4, color="#004400", tooltip="大和・河内守護勢を動員し、赤坂城で挙兵した楠木軍の討伐を開始（赤坂城攻防）"];
+    edge [color="#005500"];
+    hojo_takatoki -> hojo_moritoki [tooltip="幕府の支配体制。"];
+    hojo_takatoki -> hojo_nakatoki [tooltip="幕府の支配体制。"];
+    hojo_takatoki -> nagasaki_takasuke [tooltip="幕府の支配体制。"];
+    hojo_takatoki -> nagasaki_enki [tooltip="幕府の支配体制。"];
+    hojo_takatoki -> uesugi_shigefusa [tooltip="鎌倉幕府の有力御家人。"];
 
-    # 【重要度：中】挙兵の連動、強固な同心、皇位対立
-    moriyoshi_shinnou -> godaigo_tenno [penwidth=3.2, arrowsize=1.2, color="#ff4444", tooltip="父の危機に連動して還俗。令旨を発して吉野山などで強力なゲリラ戦を開始（親子共闘・挙兵）"];
-    munenaga_shinnou -> godaigo_tenno [penwidth=3.2, arrowsize=1.2, color="#ff4444", tooltip="比叡山の勢力を宮方に引き込むべく、父と緊密に連携（宗教勢力工作）"];
-    chigusa_tadaaki -> godaigo_tenno [penwidth=3.2, arrowsize=1.2, color="#ff4444", tooltip="近臣として笠置山潜幸に同行。軍事指揮や連絡調整に奔走（側近・近侍）"];
-    shijo_takadata -> godaigo_tenno [penwidth=3.2, arrowsize=1.2, color="#ff4444", tooltip="公卿でありながら笠置山に同行し、側近として徹底抗戦を支える（側近・籠城）"];
-    kusunoki_masashige -> godaigo_tenno [penwidth=3.2, arrowsize=1.2, color="#ff4444", tooltip="後醍醐天皇の密勅に応じ、河内赤坂城で挙兵。卓越した戦術で幕府軍を惹きつける（綸旨拝受・挙兵）"];
-    gofushimi_in -> kogen_tenno [penwidth=3.2, arrowsize=1.2, color="#0000aa", tooltip="後醍醐の廃位と、持明院統の光厳天皇への皇位継承を強力に後押し（院政・正統性確保）"];
-    gofushimi_in -> godaigo_tenno [penwidth=3.2, arrowsize=1.2, color="#222222", tooltip="討幕挙兵を「謀反」と断じ、大覚寺統過激派の息の根を止めるべく激しく敵対（王朝分裂・宿敵）"];
-    ashikaga_tadayoshi -> ashikaga_takauji [penwidth=3.2, arrowsize=1.2, color="#000000", tooltip="兄の出陣に従い、足利軍の主力としてともに上洛（兄弟共闘）"];
-    ko_no_moronao -> ashikaga_takauji [penwidth=3.2, arrowsize=1.2, color="#000000", tooltip="執事として足利軍の軍政と実務を取り仕切り、高氏を絶対的に補佐（主従・軍事中枢）"];
+    edge [penwidth=2.0, arrowsize=0.8, color="#555555"];
+    ashikaga_takauji -> hojo_takatoki [tooltip="将軍への忠誠。"];
+    ashikaga_takauji -> ashikaga_tadayoshi [tooltip="一門の連携。"];
+    ashikaga_tadayoshi -> ko_no_moronao [tooltip="足利氏の執事。"];
+    ashikaga_takauji -> kira_sadamitsu [tooltip="足利一門の連携。"];
+    sasaki_doyo -> hojo_takatoki [tooltip="幕府御家人としての関係。"];
+    toki_yorisada -> hojo_takatoki [tooltip="有力武士。"];
 
-    # 【重要度：細】内管領の共同歩調、身内の支援、外様武士の動向
-    nagasaki_takasuke -> nagasaki_enki [penwidth=2.5, arrowsize=1.0, color="#005500", tooltip="父子で連携し、北条得宗家を実質的に専制（独裁幕政）"];
-    kusunoki_masasue -> kusunoki_masashige [penwidth=2.5, arrowsize=1.0, color="#ff4444", tooltip="兄に全面的に同意し、一族の命運を賭けて赤坂城の籠城戦を戦う（一族共闘）"];
-    toki_yorisada -> hojo_nakatoki [penwidth=2.5, arrowsize=1.0, color="#555555", tooltip="美濃守護として六波羅探題の軍勢に合流、宮方追討の先鋒を担う（軍事的参集）"];
-    sasaki_doyo -> hojo_nakatoki [penwidth=2.5, arrowsize=1.0, color="#555555", tooltip="幕府側の御家人として追討軍に加わるが、戦況の推移を冷徹に値踏み（追討参戦）"];
-    monbun_kenshin -> godaigo_tenno [penwidth=2.5, arrowsize=1.0, color="#ff4444", tooltip="笠置山での勝利を信じ、異形の密教呪術を用いて幕府調伏の祈祷を継続（呪術支援）"];
+    edge [color="#0000aa"];
+    gofushimi_in -> hanazono_in [tooltip="持明院統の連携。"];
+    hanazono_in -> kogen_tenno [tooltip="持明院統の即位。"];
+    gofushimi_in -> gofukakusa_in [tooltip="持明院統の先祖。"];
+
+    edge [penwidth=1.5, arrowsize=0.6, color="#666666"];
+    kusunoki_masashige -> kusunoki_masasue [tooltip="兄弟の協力。"];
+    munenaga_shinnou -> godaigo_tenno [tooltip="皇子としての連帯。"];
+    horikawa_tomochika -> shijo_takadata [tooltip="宮中の公卿。"];
+    muso_soseki -> monbun_kenshin [tooltip="禅僧と僧侶。"];
+    shimazu_sadahisa -> ouchi_nagahiro [tooltip="諸国の有力武士。"];
 }
