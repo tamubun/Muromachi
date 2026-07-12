@@ -1,4 +1,4 @@
-digraph timeline_1331_10 {
+digraph timeline_1333_02 {
     # 1. 全体設定
     graph [
         charset = "UTF-8";
@@ -34,8 +34,8 @@ digraph timeline_1331_10 {
     moriyoshi_shinnou    [label="護良親王", pos="-5.08,5.77!", fontcolor="#cc0000", tooltip="後醍醐天皇の皇子。討幕運動を推進。", URL="https://ja.wikipedia.org/wiki/護良親王", target="_blank"];
     munenaga_shinnou     [label="宗良親王", pos="-4.21,6.89!", fontcolor="#cc0000", tooltip="後醍醐天皇の皇子。討幕運動に関与。", URL="https://ja.wikipedia.org/wiki/宗良親王", target="_blank"];
     tsuneyoshi_shinnou   [label="恒良親王", pos="-4.67,5.92!", fontcolor="#cc0000", tooltip="後醍醐天皇の皇子。", URL="https://ja.wikipedia.org/wiki/恒良親王", target="_blank"];
-    hino_suketomo        [label="日野資朝", pos="-5.88,5.62!", fontcolor="#cc0000", tooltip="討幕計画の主要人物。", URL="https://ja.wikipedia.org/wiki/日野資朝", target="_blank"];
-    hino_toshimoto       [label="日野俊基", pos="-5.41,5.94!", fontcolor="#cc0000", tooltip="討幕計画の主要人物。", URL="https://ja.wikipedia.org/wiki/日野俊基", target="_blank"];
+    hino_suketomo        [label="日野資朝", pos="-5.88,5.62!", fontcolor="#aaaaaa", tooltip="討幕計画により処刑。", URL="https://ja.wikipedia.org/wiki/日野資朝", target="_blank"];
+    hino_toshimoto       [label="日野俊基", pos="-5.41,5.94!", fontcolor="#aaaaaa", tooltip="討幕計画により処刑。", URL="https://ja.wikipedia.org/wiki/日野俊基", target="_blank"];
     madenokoji_nobufusa  [label="万里小路宣房", pos="-4.12,5.21!", fontcolor="#000000", tooltip="後醍醐の側近。", URL="https://ja.wikipedia.org/wiki/万里小路宣房", target="_blank"];
     horikawa_tomochika   [label="堀川具親", pos="-5.15,4.85!", fontcolor="#000000", tooltip="公卿。", URL="https://ja.wikipedia.org/wiki/堀川具親", target="_blank"];
     shijo_takadata       [label="四条隆資", pos="-4.72,4.98!", fontcolor="#000000", tooltip="後醍醐天皇の側近。討幕運動に関与。", URL="https://ja.wikipedia.org/wiki/四条隆資", target="_blank"];
@@ -43,7 +43,10 @@ digraph timeline_1331_10 {
     kitabatake_chikafusa [label="北畠親房", pos="-3.85,3.62!", fontcolor="#000000", tooltip="公卿。後醍醐を補佐する。", URL="https://ja.wikipedia.org/wiki/北畠親房", target="_blank"];
     kusunoki_masashige   [label="楠木正成", pos="-4.85,-1.12!", fontcolor="#cc0000", tooltip="河内の悪党。挙兵する。", URL="https://ja.wikipedia.org/wiki/楠木正成", target="_blank"];
     kusunoki_masasue     [label="楠木正季", pos="-5.21,-1.48!", fontcolor="#cc0000", tooltip="正成の弟。", URL="https://ja.wikipedia.org/wiki/楠木正季", target="_blank"];
+    nawa_nagatoshi       [label="名和長年", pos="-3.95,-1.32!", fontcolor="#cc0000", tooltip="伯耆の豪族。後醍醐天皇を支援。", URL="https://ja.wikipedia.org/wiki/名和長年", target="_blank"];
     kikuchi_taketoki     [label="菊池武時", pos="-6.15,-3.82!", fontcolor="#444444", tooltip="九州の有力武士。討幕に呼応。", URL="https://ja.wikipedia.org/wiki/菊池武時", target="_blank"];
+    doi_michitsura       [label="土居通遠", pos="-5.42,-0.85!", fontcolor="#000000", tooltip="伊予の武士。討幕に呼応。", URL="https://ja.wikipedia.org/wiki/土居通遠", target="_blank"];
+    tokunou_michitoki    [label="徳能通時", pos="-5.15,-0.52!", fontcolor="#000000", tooltip="名和氏配下の武将。", URL="https://ja.wikipedia.org/wiki/徳能通時", target="_blank"];
     gofushimi_in         [label="後伏見院", pos="-2.81,6.14!", fontcolor="#0000cc", tooltip="持明院統。幕府の支持を受ける。", URL="https://ja.wikipedia.org/wiki/後伏見天皇", target="_blank"];
     hanazono_in          [label="花園院", pos="-3.24,5.88!", fontcolor="#0000cc", tooltip="持明院統。", URL="https://ja.wikipedia.org/wiki/花園天皇", target="_blank"];
     kogen_tenno          [label="光厳天皇", pos="-2.45,6.67!", fontcolor="#0000cc", tooltip="持明院統。皇位継承者。", URL="https://ja.wikipedia.org/wiki/光厳天皇", target="_blank"];
@@ -53,11 +56,13 @@ digraph timeline_1331_10 {
     nagasaki_takasuke    [label="長崎高資", pos="0.24,0.48!", fontcolor="#004400", tooltip="鎌倉幕府内管領。", URL="https://ja.wikipedia.org/wiki/長崎高資", target="_blank"];
     nagasaki_enki        [label="長崎円喜", pos="-0.12,0.32!", fontcolor="#004400", tooltip="鎌倉幕府内管領。", URL="https://ja.wikipedia.org/wiki/長崎円喜", target="_blank"];
     uesugi_shigefusa     [label="上杉重房", pos="5.42,5.12!", fontcolor="#444444", tooltip="有力御家人。幕府の重臣。", URL="https://ja.wikipedia.org/wiki/上杉重房", target="_blank"];
-    ashikaga_takauji     [label="足利高氏", pos="1.15,-0.85!", fontcolor="#000000", tooltip="鎌倉幕府の有力御家人。後の尊氏。", URL="https://ja.wikipedia.org/wiki/足利尊氏", target="_blank"];
+    ashikaga_takauji     [label="足利高氏", pos="1.15,-0.85!", fontcolor="#000000", tooltip="鎌倉幕府の有力御家人。後の尊氏", URL="https://ja.wikipedia.org/wiki/足利尊氏", target="_blank"];
     ashikaga_tadayoshi   [label="足利忠義", pos="1.48,-1.24!", fontcolor="#000000", tooltip="高氏の弟。後の直義。", URL="https://ja.wikipedia.org/wiki/足利直義", target="_blank"];
     ko_no_moronao        [label="高師直", pos="1.82,-1.62!", fontcolor="#000000", tooltip="高氏の家臣。", URL="https://ja.wikipedia.org/wiki/高師直", target="_blank"];
     kira_sadamitsu       [label="吉良貞義", pos="1.12,2.15!", fontcolor="#000000", tooltip="足利一門。", URL="https://ja.wikipedia.org/wiki/吉良貞義", target="_blank"];
-    sasaki_doyo          [label="佐々木道誉", pos="0.68,-3.62!", fontcolor="#000000", tooltip="幕府の命により後醍醐を護送。", URL="https://ja.wikipedia.org/wiki/佐々木道誉", target="_blank"];
+    akamatsu_enshin      [label="赤松円心", pos="-2.15,-2.82!", fontcolor="#cc0000", tooltip="播磨の武士。討幕に呼応。", URL="https://ja.wikipedia.org/wiki/赤松円心", target="_blank"];
+    akamatsu_sadanori    [label="赤松貞範", pos="-1.85,-2.65!", fontcolor="#cc0000", tooltip="円心の子。討幕に呼応。", URL="https://ja.wikipedia.org/wiki/赤松貞範", target="_blank"];
+    sasaki_doyo          [label="佐々木道誉", pos="0.68,-3.62!", fontcolor="#000000", tooltip="幕府の有力御家人。", URL="https://ja.wikipedia.org/wiki/佐々木道誉", target="_blank"];
     toki_yorisada        [label="土岐頼貞", pos="2.12,1.65!", fontcolor="#444444", tooltip="有力武士。", URL="https://ja.wikipedia.org/wiki/土岐頼貞", target="_blank"];
     shimazu_sadahisa     [label="島津貞久", pos="-5.72,-5.12!", fontcolor="#444444", tooltip="有力武士。", URL="https://ja.wikipedia.org/wiki/島津貞久", target="_blank"];
     ouchi_nagahiro       [label="大内長弘", pos="-3.45,-2.12!", fontcolor="#444444", tooltip="有力武士。", URL="https://ja.wikipedia.org/wiki/大内長弘", target="_blank"];
@@ -66,18 +71,17 @@ digraph timeline_1331_10 {
 
     # 5. エッジ定義
     edge [penwidth=2.8, arrowsize=1.0, color="#cc0000"];
-    godaigo_tenno -> hino_suketomo [tooltip="討幕計画の指令。"];
-    godaigo_tenno -> hino_toshimoto [tooltip="討幕計画の指令。"];
-    godaigo_tenno -> madenokoji_nobufusa [tooltip="後醍醐の側近。"];
-    godaigo_tenno -> horikawa_tomochika [tooltip="宮方の公卿。"];
-    godaigo_tenno -> shijo_takadata [tooltip="討幕計画に関与。"];
-    godaigo_tenno -> chigusa_tadaaki [tooltip="討幕計画に関与。"];
     godaigo_tenno -> moriyoshi_shinnou [tooltip="討幕の挙兵を命じる。"];
     godaigo_tenno -> kusunoki_masashige [tooltip="討幕の挙兵を命じる。"];
+    godaigo_tenno -> nawa_nagatoshi [tooltip="隠岐脱出を支援。"];
     godaigo_tenno -> tsuneyoshi_shinnou [tooltip="皇子として討幕に関与。"];
     godaigo_tenno -> munenaga_shinnou [tooltip="皇子として討幕に関与。"];
+    nawa_nagatoshi -> doi_michitsura [tooltip="挙兵への協力。"];
+    nawa_nagatoshi -> tokunou_michitoki [tooltip="挙兵への協力。"];
     kikuchi_taketoki -> godaigo_tenno [tooltip="討幕の綸旨を受け呼応。"];
-    
+    akamatsu_enshin -> akamatsu_sadanori [tooltip="一門の連携。"];
+    akamatsu_enshin -> godaigo_tenno [tooltip="討幕に呼応。"];
+
     edge [color="#005500"];
     hojo_takatoki -> nagasaki_takasuke [tooltip="幕府の支配体制。"];
     hojo_takatoki -> nagasaki_enki [tooltip="幕府の支配体制。"];
@@ -89,7 +93,6 @@ digraph timeline_1331_10 {
     edge [penwidth=2.0, arrowsize=0.8, color="#555555"];
     ashikaga_takauji -> hojo_takatoki [tooltip="将軍への忠誠。"];
     sasaki_doyo -> hojo_takatoki [tooltip="幕府御家人。"];
-    sasaki_doyo -> godaigo_tenno [tooltip="幕府の命により後醍醐天皇を隠岐へ護送。"];
     toki_yorisada -> hojo_takatoki [tooltip="有力武士。"];
     kusunoki_masashige -> kusunoki_masasue [tooltip="兄弟の協力関係。"];
     ashikaga_takauji -> ashikaga_tadayoshi [tooltip="兄弟の連携。"];
@@ -103,4 +106,8 @@ digraph timeline_1331_10 {
     muso_soseki -> monbun_kenshin [tooltip="禅僧と僧侶。"];
     kitabatake_chikafusa -> godaigo_tenno [tooltip="後醍醐天皇を補佐。"];
     kira_sadamitsu -> ashikaga_takauji [tooltip="足利一門。"];
+    shijo_takadata -> godaigo_tenno [tooltip="側近として補佐。"];
+    chigusa_tadaaki -> godaigo_tenno [tooltip="側近として補佐。"];
+    madenokoji_nobufusa -> godaigo_tenno [tooltip="側近として補佐。"];
+    horikawa_tomochika -> godaigo_tenno [tooltip="宮方の公卿。"];
 }

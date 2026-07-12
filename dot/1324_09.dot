@@ -40,11 +40,11 @@ digraph timeline_1324_09 {
     # 持明院統
     gofushimi_in         [label="後伏見院", pos="-2.81,6.14!", fontcolor="#0000cc", tooltip="持明院統。幕府の支持を受ける。", URL="https://ja.wikipedia.org/wiki/後伏見天皇", target="_blank"];
     hanazono_in          [label="花園院", pos="-3.24,5.88!", fontcolor="#0000cc", tooltip="持明院統。", URL="https://ja.wikipedia.org/wiki/花園天皇", target="_blank"];
-    gofukakusa_in        [label="後深草院", pos="-2.11,5.66!", fontcolor="#aaaaaa", tooltip="持明院統。", URL="https://ja.wikipedia.org/wiki/後深草天皇", target="_blank"];
+    gofukakusa_in        [label="後深草院", pos="-2.11,5.66!", fontcolor="#aaaaaa", tooltip="持明院統。既に故人。", URL="https://ja.wikipedia.org/wiki/後深草天皇", target="_blank"];
 
     # 鎌倉幕府
     hojo_takatoki        [label="北条高時", pos="2.41,4.89!", fontcolor="#004400", tooltip="鎌倉幕府得宗。", URL="https://ja.wikipedia.org/wiki/北条高時", target="_blank"];
-    hojo_sadatoki        [label="北条貞時", pos="1.98,5.12!", fontcolor="#aaaaaa", tooltip="鎌倉幕府得宗。", URL="https://ja.wikipedia.org/wiki/北条貞時", target="_blank"];
+    hojo_sadatoki        [label="北条貞時", pos="1.98,5.12!", fontcolor="#aaaaaa", tooltip="鎌倉幕府得宗。既に故人。", URL="https://ja.wikipedia.org/wiki/北条貞時", target="_blank"];
     nagasaki_takasuke    [label="長崎高資", pos="0.24,0.48!", fontcolor="#004400", tooltip="鎌倉幕府内管領。", URL="https://ja.wikipedia.org/wiki/長崎高資", target="_blank"];
     nagasaki_enki        [label="長崎円喜", pos="-0.12,0.32!", fontcolor="#004400", tooltip="鎌倉幕府内管領。", URL="https://ja.wikipedia.org/wiki/長崎円喜", target="_blank"];
     uesugi_shigefusa     [label="上杉重房", pos="5.42,5.12!", fontcolor="#444444", tooltip="有力御家人。", URL="https://ja.wikipedia.org/wiki/上杉重房", target="_blank"];
@@ -52,7 +52,7 @@ digraph timeline_1324_09 {
     # 武士・その他
     ando_suehisa         [label="安藤季長", pos="4.52,2.41!", fontcolor="#000000", tooltip="安藤氏の乱当事者。", URL="https://ja.wikipedia.org/wiki/安藤氏_(鎌倉時代)", target="_blank"];
     ando_suesada         [label="安藤季貞", pos="4.88,1.95!", fontcolor="#000000", tooltip="安藤氏の乱当事者。", URL="https://ja.wikipedia.org/wiki/安藤氏_(鎌倉時代)", target="_blank"];
-    ashikaga_takauji     [label="足利高氏", pos="1.15,-0.85!", fontcolor="#000000", tooltip="鎌倉幕府の有力御家人。", URL="https://ja.wikipedia.org/wiki/足利尊氏", target="_blank"];
+    ashikaga_takauji     [label="足利高氏", pos="1.15,-0.85!", fontcolor="#000000", tooltip="鎌倉幕府の有力御家人。後の尊氏。", URL="https://ja.wikipedia.org/wiki/足利尊氏", target="_blank"];
     sasaki_doyo          [label="佐々木道誉", pos="0.68,-3.62!", fontcolor="#000000", tooltip="幕府の有力御家人。", URL="https://ja.wikipedia.org/wiki/佐々木道誉", target="_blank"];
     toki_yorisada        [label="土岐頼貞", pos="2.12,1.65!", fontcolor="#444444", tooltip="有力武士。", URL="https://ja.wikipedia.org/wiki/土岐頼貞", target="_blank"];
     shimazu_sadahisa     [label="島津貞久", pos="-5.72,-5.12!", fontcolor="#444444", tooltip="有力武士。", URL="https://ja.wikipedia.org/wiki/島津貞久", target="_blank"];
@@ -75,14 +75,12 @@ digraph timeline_1324_09 {
 
     # 重要度：中（連帯・君臣）
     edge [penwidth=2.0, arrowsize=0.8, color="#555555"];
-    hojo_sadatoki -> hojo_takatoki [tooltip="得宗家嫡流。"];
     ashikaga_takauji -> hojo_takatoki [tooltip="将軍への忠誠。"];
     sasaki_doyo -> hojo_takatoki [tooltip="幕府御家人としての関係。"];
     toki_yorisada -> hojo_takatoki [tooltip="有力武士。"];
     
     edge [color="#0000aa"];
     gofushimi_in -> hanazono_in [tooltip="持明院統の連携。"];
-    gofushimi_in -> gofukakusa_in [tooltip="持明院統の先祖。"];
 
     # 重要度：細（一門・周辺連携）
     edge [penwidth=1.5, arrowsize=0.6, color="#666666"];
