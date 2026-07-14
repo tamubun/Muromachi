@@ -1,8 +1,10 @@
 import xml.etree.ElementTree as ET
 import re
 import os
+import argparse
+import math
 
-# --- 1. ノード情報抽出 ---
+# --- 既存のノード情報抽出・最適化ロジック ---
 def parse_transform(transform_str):
     if not transform_str: return 0.0, 0.0
     match = re.search(r'translate\(([^, ]+)[, ]+([^)]+)\)', transform_str)
@@ -37,21 +39,15 @@ def extract_nodes_from_single_file(file_path):
     return nodes_data
 
 def create_svg_time_map(svg_directory):
-    files = sorted([f for f in os.listdir(svg_directory) if f.endswith(".svg") and "_opt" not in f])
+    files = sorted([f for f in os.listdir(svg_directory) if f.endswith(".svg")])
     return {str(f)[:-4]: extract_nodes_from_single_file(os.path.join(svg_directory, f)) for f in files}, files
 
-# --- 2. 最適化ロジック ---
 def optimize_positions(svg_time_map, iterations=1000, k_spring=0.04, repulsion=20000, scale=1.0):
     people = {}
     for t, nodes in svg_time_map.items():
         for name, info in nodes.items():
             if name not in people:
-                people[name] = {
-                    'pos': list(info['center']),
-                    'size': list(info['size']),
-                    'name': info['name'],
-                    'count': 1
-                }
+                people[name] = {'pos': list(info['center']), 'size': list(info['size']), 'name': info['name'], 'count': 1}
             else:
                 people[name]['pos'][0] += info['center'][0]
                 people[name]['pos'][1] += info['center'][1]
@@ -84,176 +80,116 @@ def optimize_positions(svg_time_map, iterations=1000, k_spring=0.04, repulsion=2
         for name in names:
             forces[name][0] -= k_spring * (people[name]['pos'][0] - anchors[name][0])
             forces[name][1] -= k_spring * (people[name]['pos'][1] - anchors[name][1])
-            people[name]['pos'][0] += forces[name][0]
-            people[name]['pos'][1] += forces[name][1]
+            people[name]['pos'][0] += forces[name][0]; people[name]['pos'][1] += forces[name][1]
     return people
 
-# --- 3. SVG出力系 ---
-
-import math
-
+# --- SVG出力・計算系 ---
 def get_intersection(s_pos, d_pos, w, h):
-    """ノードの中心から辺までの交点を計算する"""
     dx, dy = d_pos[0] - s_pos[0], d_pos[1] - s_pos[1]
     if dx == 0 and dy == 0: return s_pos
-    
-    # 矩形の半幅、半高
-    hw, hh = w / 2, h / 2
-    
-    # 交点の比率を求める
-    ratio = min(abs(hw / dx) if dx != 0 else float('inf'), 
-                abs(hh / dy) if dy != 0 else float('inf'))
-    
+    ratio = min(abs(w / 2 / dx) if dx != 0 else float('inf'), abs(h / 2 / dy) if dy != 0 else float('inf'))
     return s_pos[0] + dx * ratio, s_pos[1] + dy * ratio
 
 def create_arrowhead_poly(x, y, angle, size=10):
-    """矢印の先端をpolygonで生成する"""
-    # 矢印の先端を基準に、3点を計算
     p1 = (x, y)
     p2 = (x + size * math.cos(angle + math.pi * 0.8), y + size * math.sin(angle + math.pi * 0.8))
     p3 = (x + size * math.cos(angle - math.pi * 0.8), y + size * math.sin(angle - math.pi * 0.8))
-    
-    points = f"{p1[0]:.2f},{p1[1]:.2f} {p2[0]:.2f},{p2[1]:.2f} {p3[0]:.2f},{p3[1]:.2f}"
-    return f'<polygon points="{points}" fill="inherit" stroke="none"/>'
+    return f'<polygon points="{p1[0]:.2f},{p1[1]:.2f} {p2[0]:.2f},{p2[1]:.2f} {p3[0]:.2f},{p3[1]:.2f}" fill="inherit" stroke="none"/>'
 
 def draw_edge(s_pos, d_pos, src_w, src_h, dst_w, dst_h, stroke, width):
-    """端点を調整し、polygonの矢印付きエッジを描画する"""
     start = get_intersection(s_pos, d_pos, src_w, src_h)
     end = get_intersection(d_pos, s_pos, dst_w, dst_h)
-    
     angle = math.atan2(end[1] - start[1], end[0] - start[0])
-    
     line = f'<line x1="{start[0]:.2f}" y1="{start[1]:.2f}" x2="{end[0]:.2f}" y2="{end[1]:.2f}" stroke="{stroke}" stroke-width="{width}"/>'
-    # polygonの矢印を追加
-    arrow = create_arrowhead_poly(end[0], end[1], angle)
-    
-    return f'<g stroke="{stroke}" fill="{stroke}">{line}{arrow}</g>'
+    return f'<g stroke="{stroke}" fill="{stroke}">{line}{create_arrowhead_poly(end[0], end[1], angle)}</g>'
 
-def get_viewBox(people_data):
+def get_viewBox(people_data, wh_fixed=None):
     xs = [p['pos'][0] for p in people_data.values()]
     ys = [p['pos'][1] for p in people_data.values()]
+    
+    if wh_fixed:
+        w_fixed, h_fixed = wh_fixed
+        cx, cy = (min(xs) + max(xs)) / 2, (min(ys) + max(ys)) / 2
+        return f"{cx - w_fixed/2:.2f} {cy - h_fixed/2:.2f} {w_fixed:.2f} {h_fixed:.2f}"
+    
     margin = 50
-    vb = f"{min(xs)-margin} {min(ys)-margin} {max(xs)-min(xs)+margin*2} {max(ys)-min(ys)+margin*2}"
-    return vb
+    return f"{min(xs)-margin} {min(ys)-margin} {max(xs)-min(xs)+margin*2} {max(ys)-min(ys)+margin*2}"
 
-def save_as_svg(people_data, output_path):
-    vb = get_viewBox(people_data)
+def save_as_svg(people_data, output_path, wh_fixed=None):
+    vb = get_viewBox(people_data, wh_fixed)
     dwg = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{vb}">']
     for data in people_data.values():
-        x, y = data['pos']
-        w, h = data['size']
+        x, y = data['pos']; w, h = data['size']
         dwg.append(f'<rect x="{x-w/2}" y="{y-h/2}" width="{w}" height="{h}" fill="#f9f9f9" stroke="#333"/>')
         fs = min(12, h * 0.7)
         dwg.append(f'<text x="{x}" y="{y+fs/3}" font-size="{fs}" text-anchor="middle" font-family="sans-serif">{data["name"]}</text>')
     dwg.append('</svg>')
-    with open(output_path, 'w') as f: f.write('\n'.join(dwg))
+    with open(output_path, 'w', encoding='utf-8') as f: f.write('\n'.join(dwg))
 
 def extract_svg_info(svg_path):
-    """オリジナルSVGからノードとエッジ情報を抽出する"""
-    tree = ET.parse(svg_path)
-    root = tree.getroot()
+    tree = ET.parse(svg_path); root = tree.getroot()
     ns = {'svg': 'http://www.w3.org/2000/svg', 'xlink': 'http://www.w3.org/1999/xlink'}
-    
-    nodes_info = {}
-    for node in root.findall('.//svg:g[@class="node"]', ns):
-        title = node.find('.//svg:title', ns).text
-        nodes_info[title] = {
-            'a_attrs': node.find('.//svg:a', ns).attrib if node.find('.//svg:a', ns) is not None else {},
-            'poly_attrs': node.find('.//svg:polygon', ns).attrib if node.find('.//svg:polygon', ns) is not None else {},
-            'text_attrs': node.find('.//svg:text', ns).attrib if node.find('.//svg:text', ns) is not None else {},
-            'text_content': node.find('.//svg:text', ns).text if node.find('.//svg:text', ns) is not None else ""
-        }
-
+    nodes_info = {node.find('.//svg:title', ns).text: {
+        'a_attrs': node.find('.//svg:a', ns).attrib if node.find('.//svg:a', ns) is not None else {},
+        'poly_attrs': node.find('.//svg:polygon', ns).attrib if node.find('.//svg:polygon', ns) is not None else {},
+        'text_attrs': node.find('.//svg:text', ns).attrib if node.find('.//svg:text', ns) is not None else {},
+        'text_content': node.find('.//svg:text', ns).text if node.find('.//svg:text', ns) is not None else ""
+    } for node in root.findall('.//svg:g[@class="node"]', ns)}
     edges_info = []
     for edge in root.findall('.//svg:g[@class="edge"]', ns):
         title = edge.find('.//svg:title', ns).text
         if title and '->' in title:
             src, dst = title.split('->')
-            edges_info.append({
-                'src': src, 'dst': dst,
-                'path_attrs': edge.find('.//svg:path', ns).attrib if edge.find('.//svg:path', ns) is not None else {},
-                'a_attrs': edge.find('.//svg:a', ns).attrib if edge.find('.//svg:a', ns) is not None else {}
-            })
-            
+            edges_info.append({'src': src, 'dst': dst, 'path_attrs': edge.find('.//svg:path', ns).attrib, 'a_attrs': edge.find('.//svg:a', ns).attrib if edge.find('.//svg:a', ns) is not None else {}})
     return nodes_info, edges_info
 
-import xml.etree.ElementTree as ET
-import os
-import math
-
-def get_intersection(s_pos, d_pos, w, h):
-    """ノードの中心から辺までの交点を計算する"""
-    dx, dy = d_pos[0] - s_pos[0], d_pos[1] - s_pos[1]
-    if dx == 0 and dy == 0: return s_pos
-    hw, hh = w / 2, h / 2
-    ratio = min(abs(hw / dx) if dx != 0 else float('inf'), 
-                abs(hh / dy) if dy != 0 else float('inf'))
-    return s_pos[0] + dx * ratio, s_pos[1] + dy * ratio
-
-def create_arrowhead_poly(x, y, angle, size=10):
-    """矢印の先端をpolygonで生成する"""
-    p1 = (x, y)
-    p2 = (x + size * math.cos(angle + math.pi * 0.8), y + size * math.sin(angle + math.pi * 0.8))
-    p3 = (x + size * math.cos(angle - math.pi * 0.8), y + size * math.sin(angle - math.pi * 0.8))
-    points = f"{p1[0]:.2f},{p1[1]:.2f} {p2[0]:.2f},{p2[1]:.2f} {p3[0]:.2f},{p3[1]:.2f}"
-    return f'<polygon points="{points}" fill="inherit" stroke="none"/>'
-
-def draw_edge(s_pos, d_pos, src_w, src_h, dst_w, dst_h, stroke, width):
-    """端点を調整し、polygon矢印付きエッジを描画する"""
-    start = get_intersection(s_pos, d_pos, src_w, src_h)
-    end = get_intersection(d_pos, s_pos, dst_w, dst_h)
-    angle = math.atan2(end[1] - start[1], end[0] - start[0])
-    line = f'<line x1="{start[0]:.2f}" y1="{start[1]:.2f}" x2="{end[0]:.2f}" y2="{end[1]:.2f}" stroke="{stroke}" stroke-width="{width}"/>'
-    arrow = create_arrowhead_poly(end[0], end[1], angle)
-    return f'<g stroke="{stroke}" fill="{stroke}">{line}{arrow}</g>'
-
-def reconstruct_svg(time, svg_time_map, people_data, output_path, svg_directory):
-    vb = get_viewBox(people_data)
+def reconstruct_svg(time, svg_time_map, people_data, output_path, svg_directory, wh_fixed=None):
+    vb = get_viewBox(people_data, wh_fixed)
     nodes_info, edges_info = extract_svg_info(os.path.join(svg_directory, f"{time}.svg"))
-    
     dwg = [f'<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="{vb}">']
-    
-    # 1. エッジ描画
     for edge in edges_info:
         if edge['src'] in people_data and edge['dst'] in people_data:
-            s_data, d_data = people_data[edge['src']], people_data[edge['dst']]
-            stroke = edge['path_attrs'].get('stroke', '#000')
-            width = edge['path_attrs'].get('stroke-width', '1.0')
-            
+            s, d = people_data[edge['src']], people_data[edge['dst']]
             a_attrs = "".join([f'{k.replace("{http://www.w3.org/1999/xlink}", "xlink:")}="{v}" ' for k, v in edge['a_attrs'].items()])
-            dwg.append(f'  <a {a_attrs}>' if a_attrs else "")
-            dwg.append(draw_edge(s_data['pos'], d_data['pos'], s_data['size'][0], s_data['size'][1], d_data['size'][0], d_data['size'][1], stroke, width))
-            dwg.append('  </a>' if a_attrs else "")
-
-    # 2. ノード描画
+            dwg.append(f'<a {a_attrs}>' if a_attrs else "")
+            dwg.append(draw_edge(s['pos'], d['pos'], s['size'][0], s['size'][1], d['size'][0], d['size'][1], edge['path_attrs'].get('stroke', '#000'), edge['path_attrs'].get('stroke-width', '1.0')))
+            dwg.append('</a>' if a_attrs else "")
     for name in svg_time_map[time].keys():
         if name in people_data and name in nodes_info:
-            info = nodes_info[name]
-            pos, (w, h) = people_data[name]['pos'], people_data[name]['size']
+            info = nodes_info[name]; pos, (w, h) = people_data[name]['pos'], people_data[name]['size']
             a_attrs = "".join([f'{k.replace("{http://www.w3.org/1999/xlink}", "xlink:")}="{v}" ' for k, v in info['a_attrs'].items()])
-            
-            dwg.append(f'<g class="node" transform="translate({pos[0]:.2f}, {pos[1]:.2f})">')
-            dwg.append(f'  <title>{name}</title>')
-            dwg.append(f'  <a {a_attrs}>')
-            dwg.append(f'    <polygon points="{-w/2:.2f},{-h/2:.2f} {w/2:.2f},{-h/2:.2f} {w/2:.2f},{h/2:.2f} {-w/2:.2f},{h/2:.2f} {-w/2:.2f},{-h/2:.2f}" ' + 
-                       " ".join([f'{k}="{v}"' for k, v in info['poly_attrs'].items() if k != 'points']) + '/>')
-            
-            t_attrs = " ".join([f'{k}="{v}"' for k, v in info['text_attrs'].items() if k not in {'x', 'y', 'text-anchor'}])
-            dwg.append(f'    <text x="0" y="5" text-anchor="middle" {t_attrs}>{info["text_content"]}</text>')
-            dwg.append('  </a></g>')
-            
+            dwg.append(f'<g class="node" transform="translate({pos[0]:.2f}, {pos[1]:.2f})"><a {a_attrs}><polygon points="{-w/2:.2f},{-h/2:.2f} {w/2:.2f},{-h/2:.2f} {w/2:.2f},{h/2:.2f} {-w/2:.2f},{h/2:.2f} {-w/2:.2f},{-h/2:.2f}" ' + " ".join([f'{k}="{v}"' for k, v in info['poly_attrs'].items() if k != 'points']) + f'/><text x="0" y="5" text-anchor="middle" ' + " ".join([f'{k}="{v}"' for k, v in info['text_attrs'].items() if k not in {'x', 'y', 'text-anchor'}]) + f'>{info["text_content"]}</text></a></g>')
     dwg.append('</svg>')
-    
-    with open(output_path, 'w', encoding='utf-8') as f:
-        f.write('\n'.join(dwg))
+    with open(output_path, 'w', encoding='utf-8') as f: f.write('\n'.join(dwg))
 
-# --- 実行例 ---
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("input_dir"); parser.add_argument("output_dir")
+    parser.add_argument("start_period"); parser.add_argument("end_period")
+    parser.add_argument("--k_spring", type=float, default=0.04); parser.add_argument("--repulsion", type=float, default=20000)
+    parser.add_argument("--scale", type=float, default=1.0);
+    parser.add_argument("--master", metavar="FILENAME", nargs='?', const="master_map.svg", default=None,
+                        help="マスターマップを出力（ファイル名を指定可能。--masterのみなら master_map.svg を使用）")
+    parser.add_argument("--width-height", help="固定幅と高さ (例: '911.87 836.76')")
+    args = parser.parse_args()
 
-# 1. データセットの作成と最適化
-# svg_dir = "./svg_data"
-# svg_time_map, files = create_svg_time_map(svg_dir)
-# opt_data = optimize_positions(svg_time_map, scale=1.5)
+    wh_fixed = tuple(map(float, args.width_height.split())) if args.width_height else None
+    all_files = sorted([f for f in os.listdir(args.input_dir) if f.endswith(".svg")])
+    start_idx = next((i for i, f in enumerate(all_files) if f.startswith(args.start_period)), 0)
+    end_idx = next((i for i, f in enumerate(all_files) if f.startswith(args.end_period)), len(all_files) - 1)
+    target_files = all_files[start_idx : end_idx + 1]
 
-# # 2. 全体マップの出力
-# save_as_svg(opt_data, "master_map.svg")
+    svg_time_map = {str(f)[:-4]: extract_nodes_from_single_file(os.path.join(args.input_dir, f)) for f in target_files}
+    people_data = optimize_positions(svg_time_map, k_spring=args.k_spring, repulsion=args.repulsion, scale=args.scale)
 
+    if not os.path.exists(args.output_dir): os.makedirs(args.output_dir)
+    if args.master:
+        save_as_svg(people_data, os.path.join(args.output_dir, args.master), wh_fixed)
+        print(f"Master map generated: {args.master}")
+    else:
+        for f in target_files:
+            key = str(f)[:-4]
+            reconstruct_svg(key, svg_time_map, people_data, out_path := os.path.join(args.output_dir, f"{key}.svg"), args.input_dir, wh_fixed)
+            print(f"Generated: {out_path}")
+
+if __name__ == "__main__": main()
