@@ -89,11 +89,55 @@ def optimize_positions(svg_time_map, iterations=1000, k_spring=0.04, repulsion=2
     return people
 
 # --- 3. SVG出力系 ---
-def save_as_svg(people_data, output_path):
+
+import math
+
+def get_intersection(s_pos, d_pos, w, h):
+    """ノードの中心から辺までの交点を計算する"""
+    dx, dy = d_pos[0] - s_pos[0], d_pos[1] - s_pos[1]
+    if dx == 0 and dy == 0: return s_pos
+    
+    # 矩形の半幅、半高
+    hw, hh = w / 2, h / 2
+    
+    # 交点の比率を求める
+    ratio = min(abs(hw / dx) if dx != 0 else float('inf'), 
+                abs(hh / dy) if dy != 0 else float('inf'))
+    
+    return s_pos[0] + dx * ratio, s_pos[1] + dy * ratio
+
+def create_arrowhead_poly(x, y, angle, size=10):
+    """矢印の先端をpolygonで生成する"""
+    # 矢印の先端を基準に、3点を計算
+    p1 = (x, y)
+    p2 = (x + size * math.cos(angle + math.pi * 0.8), y + size * math.sin(angle + math.pi * 0.8))
+    p3 = (x + size * math.cos(angle - math.pi * 0.8), y + size * math.sin(angle - math.pi * 0.8))
+    
+    points = f"{p1[0]:.2f},{p1[1]:.2f} {p2[0]:.2f},{p2[1]:.2f} {p3[0]:.2f},{p3[1]:.2f}"
+    return f'<polygon points="{points}" fill="inherit" stroke="none"/>'
+
+def draw_edge(s_pos, d_pos, src_w, src_h, dst_w, dst_h, stroke, width):
+    """端点を調整し、polygonの矢印付きエッジを描画する"""
+    start = get_intersection(s_pos, d_pos, src_w, src_h)
+    end = get_intersection(d_pos, s_pos, dst_w, dst_h)
+    
+    angle = math.atan2(end[1] - start[1], end[0] - start[0])
+    
+    line = f'<line x1="{start[0]:.2f}" y1="{start[1]:.2f}" x2="{end[0]:.2f}" y2="{end[1]:.2f}" stroke="{stroke}" stroke-width="{width}"/>'
+    # polygonの矢印を追加
+    arrow = create_arrowhead_poly(end[0], end[1], angle)
+    
+    return f'<g stroke="{stroke}" fill="{stroke}">{line}{arrow}</g>'
+
+def get_viewBox(people_data):
     xs = [p['pos'][0] for p in people_data.values()]
     ys = [p['pos'][1] for p in people_data.values()]
     margin = 50
     vb = f"{min(xs)-margin} {min(ys)-margin} {max(xs)-min(xs)+margin*2} {max(ys)-min(ys)+margin*2}"
+    return vb
+
+def save_as_svg(people_data, output_path):
+    vb = get_viewBox(people_data)
     dwg = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{vb}">']
     for data in people_data.values():
         x, y = data['pos']
@@ -104,13 +148,112 @@ def save_as_svg(people_data, output_path):
     dwg.append('</svg>')
     with open(output_path, 'w') as f: f.write('\n'.join(dwg))
 
-# --- 実行例 ---
-"""
-# 1. データセットの作成と最適化
-svg_dir = "./svg_data"
-svg_time_map, files = create_svg_time_map(svg_dir)
-opt_data = optimize_positions(svg_time_map, scale=1.5)
+def extract_svg_info(svg_path):
+    """オリジナルSVGからノードとエッジ情報を抽出する"""
+    tree = ET.parse(svg_path)
+    root = tree.getroot()
+    ns = {'svg': 'http://www.w3.org/2000/svg', 'xlink': 'http://www.w3.org/1999/xlink'}
+    
+    nodes_info = {}
+    for node in root.findall('.//svg:g[@class="node"]', ns):
+        title = node.find('.//svg:title', ns).text
+        nodes_info[title] = {
+            'a_attrs': node.find('.//svg:a', ns).attrib if node.find('.//svg:a', ns) is not None else {},
+            'poly_attrs': node.find('.//svg:polygon', ns).attrib if node.find('.//svg:polygon', ns) is not None else {},
+            'text_attrs': node.find('.//svg:text', ns).attrib if node.find('.//svg:text', ns) is not None else {},
+            'text_content': node.find('.//svg:text', ns).text if node.find('.//svg:text', ns) is not None else ""
+        }
 
-# 2. 全体マップの出力
-save_as_svg(opt_data, "master_map.svg")
+    edges_info = []
+    for edge in root.findall('.//svg:g[@class="edge"]', ns):
+        title = edge.find('.//svg:title', ns).text
+        if title and '->' in title:
+            src, dst = title.split('->')
+            edges_info.append({
+                'src': src, 'dst': dst,
+                'path_attrs': edge.find('.//svg:path', ns).attrib if edge.find('.//svg:path', ns) is not None else {},
+                'a_attrs': edge.find('.//svg:a', ns).attrib if edge.find('.//svg:a', ns) is not None else {}
+            })
+            
+    return nodes_info, edges_info
+
+import xml.etree.ElementTree as ET
+import os
+import math
+
+def get_intersection(s_pos, d_pos, w, h):
+    """ノードの中心から辺までの交点を計算する"""
+    dx, dy = d_pos[0] - s_pos[0], d_pos[1] - s_pos[1]
+    if dx == 0 and dy == 0: return s_pos
+    hw, hh = w / 2, h / 2
+    ratio = min(abs(hw / dx) if dx != 0 else float('inf'), 
+                abs(hh / dy) if dy != 0 else float('inf'))
+    return s_pos[0] + dx * ratio, s_pos[1] + dy * ratio
+
+def create_arrowhead_poly(x, y, angle, size=10):
+    """矢印の先端をpolygonで生成する"""
+    p1 = (x, y)
+    p2 = (x + size * math.cos(angle + math.pi * 0.8), y + size * math.sin(angle + math.pi * 0.8))
+    p3 = (x + size * math.cos(angle - math.pi * 0.8), y + size * math.sin(angle - math.pi * 0.8))
+    points = f"{p1[0]:.2f},{p1[1]:.2f} {p2[0]:.2f},{p2[1]:.2f} {p3[0]:.2f},{p3[1]:.2f}"
+    return f'<polygon points="{points}" fill="inherit" stroke="none"/>'
+
+def draw_edge(s_pos, d_pos, src_w, src_h, dst_w, dst_h, stroke, width):
+    """端点を調整し、polygon矢印付きエッジを描画する"""
+    start = get_intersection(s_pos, d_pos, src_w, src_h)
+    end = get_intersection(d_pos, s_pos, dst_w, dst_h)
+    angle = math.atan2(end[1] - start[1], end[0] - start[0])
+    line = f'<line x1="{start[0]:.2f}" y1="{start[1]:.2f}" x2="{end[0]:.2f}" y2="{end[1]:.2f}" stroke="{stroke}" stroke-width="{width}"/>'
+    arrow = create_arrowhead_poly(end[0], end[1], angle)
+    return f'<g stroke="{stroke}" fill="{stroke}">{line}{arrow}</g>'
+
+def reconstruct_svg(time, svg_time_map, people_data, output_path, svg_directory):
+    vb = get_viewBox(people_data)
+    nodes_info, edges_info = extract_svg_info(os.path.join(svg_directory, f"{time}.svg"))
+    
+    dwg = [f'<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="{vb}">']
+    
+    # 1. エッジ描画
+    for edge in edges_info:
+        if edge['src'] in people_data and edge['dst'] in people_data:
+            s_data, d_data = people_data[edge['src']], people_data[edge['dst']]
+            stroke = edge['path_attrs'].get('stroke', '#000')
+            width = edge['path_attrs'].get('stroke-width', '1.0')
+            
+            a_attrs = "".join([f'{k.replace("{http://www.w3.org/1999/xlink}", "xlink:")}="{v}" ' for k, v in edge['a_attrs'].items()])
+            dwg.append(f'  <a {a_attrs}>' if a_attrs else "")
+            dwg.append(draw_edge(s_data['pos'], d_data['pos'], s_data['size'][0], s_data['size'][1], d_data['size'][0], d_data['size'][1], stroke, width))
+            dwg.append('  </a>' if a_attrs else "")
+
+    # 2. ノード描画
+    for name in svg_time_map[time].keys():
+        if name in people_data and name in nodes_info:
+            info = nodes_info[name]
+            pos, (w, h) = people_data[name]['pos'], people_data[name]['size']
+            a_attrs = "".join([f'{k.replace("{http://www.w3.org/1999/xlink}", "xlink:")}="{v}" ' for k, v in info['a_attrs'].items()])
+            
+            dwg.append(f'<g class="node" transform="translate({pos[0]:.2f}, {pos[1]:.2f})">')
+            dwg.append(f'  <title>{name}</title>')
+            dwg.append(f'  <a {a_attrs}>')
+            dwg.append(f'    <polygon points="{-w/2:.2f},{-h/2:.2f} {w/2:.2f},{-h/2:.2f} {w/2:.2f},{h/2:.2f} {-w/2:.2f},{h/2:.2f} {-w/2:.2f},{-h/2:.2f}" ' + 
+                       " ".join([f'{k}="{v}"' for k, v in info['poly_attrs'].items() if k != 'points']) + '/>')
+            
+            t_attrs = " ".join([f'{k}="{v}"' for k, v in info['text_attrs'].items() if k not in {'x', 'y', 'text-anchor'}])
+            dwg.append(f'    <text x="0" y="5" text-anchor="middle" {t_attrs}>{info["text_content"]}</text>')
+            dwg.append('  </a></g>')
+            
+    dwg.append('</svg>')
+    
+    with open(output_path, 'w', encoding='utf-8') as f:
+        f.write('\n'.join(dwg))
+
+# --- 実行例 ---
+
+# 1. データセットの作成と最適化
+# svg_dir = "./svg_data"
+# svg_time_map, files = create_svg_time_map(svg_dir)
+# opt_data = optimize_positions(svg_time_map, scale=1.5)
+
+# # 2. 全体マップの出力
+# save_as_svg(opt_data, "master_map.svg")
 
