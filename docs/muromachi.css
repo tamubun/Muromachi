@@ -17,5 +17,10 @@ footer { height: 120px; background: #fff; border-top: 2px solid #eee; display: f
 .line { position: absolute; top: 6px; width: 100%; height: 2px; background: #ccc; z-index: 1; }
 .label-year { font-size: 11px; }
 .label-era { font-size: 10px; color: #777; font-weight: bold; }
-.node polygon{ stroke: none !important; fill: rgba(255,255,255,0.7) !important; }
+.node text {
+    filter: drop-shadow(0 0 2px #fff)
+            drop-shadow(0 0 4px #fff)
+            drop-shadow(0 0 6px #fff);
+}
+.node polygon { display: none !important; }
 .edge:hover line { stroke-width: 10px !important; cursor: pointer; }
