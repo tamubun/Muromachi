@@ -101,7 +101,7 @@ def draw_edge(s_pos, d_pos, src_w, src_h, dst_w, dst_h, stroke, width):
     end = get_intersection(d_pos, s_pos, dst_w, dst_h)
     angle = math.atan2(end[1] - start[1], end[0] - start[0])
     line = f'<line x1="{start[0]:.2f}" y1="{start[1]:.2f}" x2="{end[0]:.2f}" y2="{end[1]:.2f}" stroke="{stroke}" stroke-width="{width}"/>'
-    return f'<g stroke="{stroke}" fill="{stroke}">{line}{create_arrowhead_poly(end[0], end[1], angle)}</g>'
+    return f'<g class="edge" stroke="{stroke}" fill="{stroke}">{line}{create_arrowhead_poly(end[0], end[1], angle)}</g>'
 
 def get_viewBox(people_data, wh_fixed=None):
     xs = [p['pos'][0] for p in people_data.values()]
