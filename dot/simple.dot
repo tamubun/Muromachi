@@ -1,0 +1,52 @@
+digraph timeline_1331_08 {
+    # 1. 全体設定
+    graph [
+        charset = "UTF-8";
+        layout = neato;
+        overlap = false;
+        sep = "+4";
+        bgcolor = "#ffffff";
+        splines = true;
+    ];
+
+    # 2. ノードデフォルト設定
+    node [
+        shape = box;
+        style = "filled";
+        fillcolor = "#fcfcfc";
+        color = "#fcfcfc";
+        penwidth = 0.1;
+        fontname = "sans-serif";
+        width = 1.4;
+        height = 0.3;
+        fixedsize = true;
+    ];
+
+    # 3. エッジデフォルト設定
+    edge [
+        dir = forward;
+        arrowhead = normal;
+        fontname = "sans-serif";
+    ];
+
+    # 4. ノード定義
+    godaigo_tenno        [label="後醍醐天皇", pos="-4.82,6.44!", fontcolor="#cc0000", tooltip="大覚寺統。討幕を画策する。", URL="https://ja.wikipedia.org/wiki/後醍醐天皇", target="_blank"];
+    hino_suketomo        [label="日野資朝", pos="-5.88,5.62!", fontcolor="#cc0000", tooltip="討幕計画の主要人物。", URL="https://ja.wikipedia.org/wiki/日野資朝", target="_blank"];
+    hino_toshimoto       [label="日野俊基", pos="-5.41,5.94!", fontcolor="#cc0000", tooltip="討幕計画の主要人物。", URL="https://ja.wikipedia.org/wiki/日野俊基", target="_blank"];
+    madenokoji_nobufusa  [label="万里小路宣房", pos="-4.12,5.21!", fontcolor="#000000", tooltip="後醍醐の側近。", URL="https://ja.wikipedia.org/wiki/万里小路宣房", target="_blank"];
+    hojo_takatoki        [label="北条高時", pos="2.41,4.89!", fontcolor="#004400", tooltip="鎌倉幕府得宗。", URL="https://ja.wikipedia.org/wiki/北条高時", target="_blank"];
+    nagasaki_enki        [label="長崎円喜", pos="-0.12,0.32!", fontcolor="#004400", tooltip="鎌倉幕府内管領。", URL="https://ja.wikipedia.org/wiki/長崎円喜", target="_blank"];
+    kikuchi_taketoki     [label="菊池武時", pos="-6.15,-3.82!", fontcolor="#444444", tooltip="九州の有力武士。討幕に呼応。", URL="https://ja.wikipedia.org/wiki/菊池武時", target="_blank"];
+    nagasaki_takasuke    [label="長崎高資", pos="0.24,0.48!", fontcolor="#004400", tooltip="鎌倉幕府内管領。", URL="https://ja.wikipedia.org/wiki/長崎高資", target="_blank"];
+    
+    # 5. エッジ定義
+    edge [penwidth=2.8, arrowsize=1.0, color="#cc0000"];
+    godaigo_tenno -> hino_suketomo [tooltip="討幕計画の指令。"];
+    godaigo_tenno -> hino_toshimoto [tooltip="討幕計画の指令。"];
+    godaigo_tenno -> madenokoji_nobufusa [tooltip="後醍醐の側近。"];
+    kikuchi_taketoki -> godaigo_tenno [tooltip="討幕の綸旨を受け呼応。"];
+    
+    edge [color="#005500"];
+    hojo_takatoki -> nagasaki_takasuke [tooltip="幕府の支配体制。"];
+    hojo_takatoki -> nagasaki_enki [tooltip="幕府の支配体制。"];
+}
