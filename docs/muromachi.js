@@ -68,6 +68,7 @@ function updateTransform() {
 }
 
 zoomArea.addEventListener('mousedown', (e) => {
+    e.preventDefault(); // 選択開始を抑制
     isDragging = true;
     startX = e.clientX - viewport.pointX;
     startY = e.clientY - viewport.pointY;

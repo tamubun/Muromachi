@@ -17,6 +17,13 @@ footer { height: 120px; background: #fff; border-top: 2px solid #eee; display: f
 .line { position: absolute; top: 6px; width: 100%; height: 2px; background: #ccc; z-index: 1; }
 .label-year { font-size: 11px; }
 .label-era { font-size: 10px; color: #777; font-weight: bold; }
+.label-year, .label-era {
+    /* ユーザーがドラッグ中にテキストを選択できないようにする */
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
 .node text {
     filter: drop-shadow(0 0 2px #fff)
             drop-shadow(0 0 4px #fff)
