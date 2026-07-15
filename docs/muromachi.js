@@ -49,11 +49,11 @@ async function selectEvent(i) {
         const svgRes = await fetch(ev.file);
         container.innerHTML = await svgRes.text();
 
-        // 初回ロード時のみ強制リセット
+        // 初回ロード時のみ強制リセット。最初に後醍醐天皇が見える場所に持っていく。
         if (isFirstLoad) {
             viewport.scale = 1;
-            viewport.pointX = 0;
-            viewport.pointY = 0;
+            viewport.pointX = 230;
+            viewport.pointY = 440;
             isFirstLoad = false; // 一度通ったらフラグを倒す
         }
 
